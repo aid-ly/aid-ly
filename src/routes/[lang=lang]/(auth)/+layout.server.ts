@@ -2,7 +2,7 @@ import { redirect } from '@sveltejs/kit';
 
 export const prerender = false;
 
-export const trailingSlash = "always";
+export const trailingSlash = 'always';
 
 export const load = ({ url, locals }) => {
 	if (!locals.user) {
