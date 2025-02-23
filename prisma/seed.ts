@@ -23,7 +23,7 @@ const main = async () => {
 	} catch (e) {
 		if (e instanceof PrismaClientKnownRequestError) {
 			if (e.code === 'P2002') {
-				console.warn(`The user '${ADMIN_USERNAME}' already exists`);
+				console.warn(`The user admin already exists`);
 				return;
 			}
 		}
