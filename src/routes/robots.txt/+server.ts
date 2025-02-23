@@ -4,8 +4,9 @@ export const prerender = true;
 
 export const GET = ({ url }) => {
 	const host = `${url.protocol}//${url.host}`;
-	const sitemaps = AVAILABLE_LANGUAGES.map(lang => `Sitemap: ${host}/${lang}/sitemap.xml`).join("\n")
-
+	const sitemaps = AVAILABLE_LANGUAGES.map((lang) => `Sitemap: ${host}/${lang}/sitemap.xml`).join(
+		'\n',
+	);
 
 	return new Response(`User-agent: *
 Disallow: /api/
