@@ -5,10 +5,15 @@
 	const { locale } = data;
 
 	const initAnalytics = () => {
-		document.body.appendChild(
+		document.body.append(
 			Object.assign(document.createElement('script'), {
 				src: 'https://scripts.simpleanalyticscdn.com/latest.js',
 				async: true,
+			}),
+			Object.assign(document.createElement('script'), {
+				src: 'https://scripts.simpleanalyticscdn.com/auto-events.js',
+				async: true,
+				'data-full-urls': true,
 			}),
 		);
 	};
