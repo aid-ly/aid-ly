@@ -38,3 +38,6 @@ export const login = async (username: string, password: string): Promise<undefin
 
 	return sanitizeObject(user, ['password', 'updatedAt']);
 };
+
+export const getAllOrganizationIds = () =>
+	prisma.user.findMany({ select: { id: true, updatedAt: true } });
