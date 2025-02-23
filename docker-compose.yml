@@ -1,6 +1,6 @@
 services:
   app:
-    image: aid-ly/aid-ly
+    image: aidly/aid-ly
     env_file: '.env'
     depends_on:
       - migrate
@@ -9,7 +9,7 @@ services:
     restart: 'unless-stopped'
 
   migrate:
-    image: aid-ly/aid-ly
+    image: aidly/aid-ly
     command: pnpm prisma migrate deploy
     env_file: '.env'
     restart: 'no'
