@@ -6,7 +6,7 @@ import { login } from '$project/src/lib/server/users';
 import { fail, redirect } from '@sveltejs/kit';
 
 export const actions = {
-	default: async ({ request, locals, cookies, url }) => {
+	default: async ({ request, locals, params, cookies, url }) => {
 		const formData = await request.formData();
 		const loginData = {
 			username: formData.get('username')?.toString(),
@@ -29,6 +29,6 @@ export const actions = {
 			sameSite: 'strict',
 		});
 
-		redirect(302, url.searchParams.get('to') || `/${locals.lang}`);
+		redirect(302, url.searchParams.get('to') || `/${params.lang}`);
 	},
 };

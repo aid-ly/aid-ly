@@ -1,6 +1,6 @@
-export const load = ({ locals }) => {
+export const load = ({ locals, params }) => {
 	return {
 		locale: locals.locale,
-		lang: locals.lang,
+		lang: params.lang,
 	};
 };
