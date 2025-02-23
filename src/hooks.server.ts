@@ -33,7 +33,6 @@ export const handle = async ({ event, resolve }) => {
 	}
 
 	locals.locale = locales[lang as Language];
-	locals.lang = lang as Language;
 
 	const jwt_cookie = cookies.get(common.cookies.jwt);
 
