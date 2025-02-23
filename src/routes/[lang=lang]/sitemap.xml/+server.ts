@@ -2,12 +2,15 @@ import { getAllOrganizationIds } from '$project/src/lib/server/users';
 
 export const GET = async ({ url, params }) => {
 	const host = `${url.protocol}//${url.host}/${params.lang}`;
-	const organizations = (await getAllOrganizationIds()).map(
-		(org) => `\t<url>
+	const organizations = (await getAllOrganizationIds())
+		.map(
+			(org) => `\t<url>
 		<loc>${host}/org/${org.id}</loc>
 		<lastmod>${org.updatedAt.toISOString().split('T')[0]}</lastmod>
 		<priority>0.7</priority>
-	</url>`).join("\n");
+	</url>`,
+		)
+		.join('\n');
 
 	return new Response(
 		`

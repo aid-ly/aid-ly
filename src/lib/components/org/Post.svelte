@@ -21,23 +21,46 @@
 	});
 </script>
 
-	<form action="?/post" method="post" class="space-y-4">
-		<input type="hidden" name="id" value={post.id} />
+<form action="?/post" method="post" class="space-y-4">
+	<input type="hidden" name="id" value={post.id} />
 
-		<div>
-			<label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-			<input type="text" name="title" id="tile" value={post.title} class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
-		</div>
+	<div>
+		<label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+		<input
+			type="text"
+			name="title"
+			id="tile"
+			value={post.title}
+			class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+		/>
+	</div>
 
-		<div>
-			<label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-			<input type="text" name="description" id="tile" value={post.description} class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
-		</div>
+	<div>
+		<label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+		<input
+			type="text"
+			name="description"
+			id="tile"
+			value={post.description}
+			class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+		/>
+	</div>
 
-		<div>
-			<label for="Place" class="block text-sm font-medium text-gray-700">Place</label>
-			<input type="text" name="Place" id="tile" bind:value={place}  class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" disabled />
-		</div>
+	<div>
+		<label for="Place" class="block text-sm font-medium text-gray-700">Place</label>
+		<input
+			type="text"
+			name="Place"
+			id="tile"
+			bind:value={place}
+			class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+			disabled
+		/>
+	</div>
 
-		<button type="submit" class="w-full py-2 px-4 bg-indigo-600 text-white font-semibold rounded-md hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500">Save Changes</button>
-	</form>
+	<button
+		type="submit"
+		class="w-full rounded-md bg-indigo-600 px-4 py-2 font-semibold text-white hover:bg-indigo-700 focus:ring-2 focus:ring-indigo-500"
+		>Save Changes</button
+	>
+</form>
