@@ -1,0 +1,37 @@
+.md h1 {
+	padding-bottom: 0.5rem;
+	margin-bottom: 1.5rem;
+	border-bottom-width: 1px;
+	font-size: 2.25rem;
+	line-height: 2.5rem;
+	font-weight: 700;
+	color: #111827;
+}
+
+.md h2 {
+	margin-top: 1.5rem;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	font-weight: 600;
+	color: #1f2937;
+}
+
+.md p {
+	margin-top: 0.5rem;
+	color: #4b5563;
+}
+
+.md ul {
+	margin-left: 1rem;
+	color: #374151;
+	list-style: disc;
+}
+
+.md ul ul {
+	list-style: circle;
+	margin-left: 1rem;
+}
+
+.md ul ul ul {
+	list-style: square;
+}
