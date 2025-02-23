@@ -29,7 +29,6 @@ export default {
 		share: {
 			title: 'Share the project',
 			shareOn: 'Share on ',
-			message: '',
 		},
 	},
 	contacts: {
@@ -85,7 +84,7 @@ export default {
 					},
 					{
 						group: 'Organizations',
-						items: ['Post a Location on the Map'],
+						items: ['Post a location on the map'],
 					},
 				],
 			},

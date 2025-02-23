@@ -1,6 +1,6 @@
 export default {
 	errors: {
-		invalid_jwt: '',
+		invalid_jwt: 'Token di sessione non valido',
 	},
 	gdpr: {
 		banner: {
@@ -27,9 +27,8 @@ export default {
 				'Trova i luoghi più vicini dove potete contribuire con il tuo tempo e le tue capacità a cause significative. Se sei interessato a sostenere le comunità locali, i progetti ambientali o le iniziative internazionali, la nostra mappa ti guiderà verso le organizzazioni che hanno bisogno del vostro aiuto. Inizia il tuo viaggio nel volontariato oggi stesso!',
 		},
 		share: {
-			title: '',
-			shareOn: '',
-			message: '',
+			title: 'Condividi il progetto',
+			shareOn: 'Condividi su',
 		},
 	},
 	contacts: {
@@ -43,30 +42,30 @@ export default {
 			ind: 'Individuo',
 		},
 		org: {
-			title: '',
-			name: '',
-			message: '',
-			phone_number: '',
-			email: '',
-			website: '',
+			title: 'Diventa un contributore della mappa',
+			name: "Nome dell'organizzazione",
+			message: "Descrivi l'organizzazione",
+			phone_number: "Il numero di telefono che le persone useranno per contattare l'organizzazione",
+			email: "L'email che le persone useranno per contattare l'organizzazione",
+			website: "Il sito web dell'organizzazione",
 		},
 		ind: {
-			title: '',
-			name: '',
+			title: 'Contattaci',
+			name: 'Nome completo',
 			subject: 'Oggetto',
-			message: '',
+			message: 'Messaggio',
 		},
-		submit: '',
+		submit: 'Invia',
 	},
 	login: {
 		form: {
 			title: 'LogIn',
-			username: '',
-			password: '',
-			submit: '',
+			username: 'Username o email',
+			password: 'Password',
+			submit: 'Login',
 		},
 		error: {
-			invalidCredentials: '',
+			invalidCredentials: 'Username o password non corrette',
 		},
 	},
 	header: {
@@ -81,11 +80,11 @@ export default {
 				options: [
 					{
 						group: 'Volontari',
-						items: [],
+						items: ['Diventa un volontario', 'Condividi', 'Dona'],
 					},
 					{
 						group: 'Organizzazioni',
-						items: [],
+						items: ['Pubblica una luogo sulla mappa'],
 					},
 				],
 			},
