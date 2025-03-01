@@ -8,7 +8,7 @@
 </script>
 
 <footer>
-	<div id="links">
+	<div id="links" class="justify-between sm:justify-around">
 		<div>
 			<h2>
 				{locale.resources.title}
@@ -110,7 +110,6 @@
 			&#links {
 				display: flex;
 
-				justify-content: space-between;
 				gap: 20px;
 				flex-direction: row;
 				flex-wrap: wrap;
