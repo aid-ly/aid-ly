@@ -1,4 +1,4 @@
-import { AVAILABLE_LANGUAGES } from '$project/src/lib/i18n';
+import { AVAILABLE_LANGUAGES } from '$lib/i18n';
 
 export const prerender = true;
 

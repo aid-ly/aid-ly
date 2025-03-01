@@ -1,4 +1,4 @@
-import { getAllOrganizationIds } from '$project/src/lib/server/users';
+import { getAllOrganizationIds } from '$lib/server/users';
 
 export const GET = async ({ url, params }) => {
 	const host = `${url.protocol}//${url.host}/${params.lang}`;

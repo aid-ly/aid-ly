@@ -1,7 +1,9 @@
 <script lang="ts">
 	import './style.css';
-	export let data;
+	const { children, data } = $props();
 </script>
+
+{@render children()}
 
 <div class="md">
 	<!-- eslint-disable-next-line svelte/no-at-html-tags -->

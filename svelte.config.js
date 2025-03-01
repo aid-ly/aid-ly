@@ -9,7 +9,7 @@ const config = {
 			precompress: true,
 		}),
 		alias: {
-			$project: '.',
+			'$project/package.json': './package.json',
 		},
 	},
 };

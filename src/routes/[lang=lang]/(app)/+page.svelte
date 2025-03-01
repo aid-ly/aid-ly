@@ -5,7 +5,7 @@
 	import { onMount } from 'svelte';
 	import { replaceState } from '$app/navigation';
 	import { page } from '$app/state';
-	import ShareButtons from '$project/src/lib/components/ShareButtons.svelte';
+	import ShareButtons from '$lib/components/ShareButtons.svelte';
 
 	const { data } = $props();
 	const { locale, lang } = data;

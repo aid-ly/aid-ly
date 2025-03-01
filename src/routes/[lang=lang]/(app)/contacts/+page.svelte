@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { env } from '$env/dynamic/public';
-	import ContactsForm from '$project/src/lib/components/ContactsForm.svelte';
+	import ContactsForm from '$lib/components/ContactsForm.svelte';
 
 	export let data;
 </script>
