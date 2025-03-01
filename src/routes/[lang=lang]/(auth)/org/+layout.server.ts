@@ -1,4 +1,4 @@
-import { getByUserId } from '$project/src/lib/server/posts.js';
+import { getByUserId } from '$lib/server/posts';
 
 export const load = async ({ locals }) => {
 	return {
@@ -6,3 +6,5 @@ export const load = async ({ locals }) => {
 		posts: await getByUserId(locals.user!.id),
 	};
 };
+
+// TODO: support actions

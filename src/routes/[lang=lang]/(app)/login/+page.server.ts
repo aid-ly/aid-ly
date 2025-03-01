@@ -1,8 +1,8 @@
 import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
-import { common } from '$project/src/lib/i18n/index';
-import { sign } from '$project/src/lib/server/jwt';
-import { login } from '$project/src/lib/server/users';
+import { common } from '$lib/i18n';
+import { sign } from '$lib/server/jwt';
+import { login } from '$lib/server/users';
 import { fail, redirect } from '@sveltejs/kit';
 
 export const actions = {
