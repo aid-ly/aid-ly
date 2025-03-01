@@ -3,7 +3,6 @@ import { type Language, AVAILABLE_LANGUAGES, common, FALLBACK, locales } from '$
 import { verify } from '$lib/server/jwt';
 import { getUserById } from '$lib/server/users';
 import { sanitizeObject } from '$lib/helpers';
-import { error } from '@sveltejs/kit';
 
 const NO_LANG_ROUTES = ['/robots.txt', '/api'];
 
@@ -48,8 +47,6 @@ export const handle = async ({ event, resolve }) => {
 			locals.user = sanitizeObject(user, ['password', 'updatedAt']);
 		} catch (_err) {
 			cookies.delete(common.cookies.jwt, { path: '/' });
-
-			error(401, locals.locale.errors.invalid_jwt);
 		}
 	}
 
