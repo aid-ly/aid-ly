@@ -9,6 +9,6 @@ type Locale = typeof en | typeof it;
 
 const AVAILABLE_LANGUAGES: Language[] = Object.keys(locales) as (keyof typeof locales)[];
 
-const FALLBACK: Language = 'en';
+const FALLBACK: Language = 'it';
 
 export { locales, common, FALLBACK, AVAILABLE_LANGUAGES, type Language, type Locale };
