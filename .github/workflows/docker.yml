@@ -41,3 +41,7 @@ jobs:
             POSTGRES_PRISMA_URL=${{ secrets.POSTGRES_PRISMA_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
+      - name: Trigger container update
+        run: |
+          curl  -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" https://watchtower.aid-ly.org
