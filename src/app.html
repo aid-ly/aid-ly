@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="%lang%">
+<html lang="%lang%" prefix="og: http://ogp.me/ns#">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -8,6 +8,11 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="%sveltekit.assets%/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="%sveltekit.assets%/favicon-16x16.png" />
 		<link rel="manifest" href="%sveltekit.assets%/site.webmanifest" />
+		<meta name="referrer" content="strict-origin-when-cross-origin" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="mobile-web-app-capable" content="yes" />
+		<meta http-equiv="content-language" content="%lang%" />
+		<meta name="language" content="%lang%" />
 		%sveltekit.head%
 	</head>
 	<body data-sveltekit-preload-data="hover">

@@ -1,8 +1,9 @@
 <script lang="ts">
 	import CookieBanner from '$lib/components/CookieBanner.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 
 	const { children, data } = $props();
-	const { locale } = data;
+	const { locale, lang, page } = data;
 
 	const initAnalytics = () => {
 		document.body.append(
@@ -22,3 +23,5 @@
 {@render children()}
 
 <CookieBanner {initAnalytics} locale={locale.gdpr.banner} />
+
+<SEO locale={locale.seo} {lang} page={page as keyof typeof locale.seo} />
