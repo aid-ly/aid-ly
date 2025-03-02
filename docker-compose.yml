@@ -6,10 +6,26 @@ services:
       - migrate
     ports:
       - '3000:3000'
+    labels:
+      - 'com.centurylinklabs.watchtower.enable=true'
     restart: 'unless-stopped'
 
   migrate:
     image: aidly/aid-ly
     command: pnpm prisma migrate deploy
     env_file: '.env'
+    labels:
+      - 'com.centurylinklabs.watchtower.enable=true'
     restart: 'no'
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --http-api-update --label-enable
+    env_file: '.env'
+    labels:
+      - 'com.centurylinklabs.watchtower.enable=false'
+    ports:
+      - '3001:8080'
+    restart: unless-stopped
