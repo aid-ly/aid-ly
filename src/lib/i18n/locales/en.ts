@@ -13,6 +13,44 @@ export default {
 			},
 		},
 	},
+	seo: {
+		'': {
+			title: 'Connecting Volunteers with Nonprofits',
+			description:
+				'Join aid-ly in building stronger communities through volunteer efforts. Our platform connects volunteers with local nonprofits in need of help—making a difference together.',
+		},
+		contacts: {
+			title: 'Contacts',
+			description:
+				'Get in touch with aid-ly and connect directly for inquiries, collaborations, or any questions you may have.',
+		},
+		login: {
+			title: 'Login',
+			description: 'Login portal for nonprofit organizations.',
+		},
+		donate: {
+			title: 'Donate',
+			description: 'Support the project by donating even a small amount.',
+		},
+		org: {
+			title: 'Nonprofit Organization',
+			description: 'View the nonprofit organization.',
+		},
+		admin: {
+			title: 'Admin Console',
+			description: 'The admin console.',
+		},
+		'terms-of-use': {
+			title: 'Terms of Use',
+			description:
+				'Read about our general terms of use and the legal implications of using aid-ly.',
+		},
+		'privacy-policy': {
+			title: 'Privacy Policy',
+			description:
+				'In our privacy policy we inform you how aid-ly collects data and also state your rights with regards to processing the data.',
+		},
+	},
 	map: {
 		more: 'Learn more',
 		by: 'Posted by',

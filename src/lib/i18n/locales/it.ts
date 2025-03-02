@@ -13,6 +13,44 @@ export default {
 			},
 		},
 	},
+	seo: {
+		'': {
+			title: 'Connette i Volontari con le Non Profit',
+			description:
+				'Unisciti ad Aid-ly per costruire comunità più forti attraverso il volontariato. La nostra piattaforma mette in contatto i volontari con le organizzazioni non profit locali che hanno bisogno di aiuto, per fare la differenza insieme.',
+		},
+		contacts: {
+			title: 'Contatti',
+			description:
+				'Mettiti in contatto con aid-ly e collegati direttamente per richieste di informazioni, collaborazioni o qualsiasi altra domanda.',
+		},
+		login: {
+			title: 'Login',
+			description: 'Portale di login per le organizzazioni non profit.',
+		},
+		donate: {
+			title: 'Donazioni',
+			description: 'Sostieni il progetto con una donazione, anche minima.',
+		},
+		org: {
+			title: 'Organizzazione non profit',
+			description: "Visualizza l'organizzazione non profit",
+		},
+		admin: {
+			title: 'Console Admin',
+			description: 'La console degli admin.',
+		},
+		'terms-of-use': {
+			title: 'Termini di Utilizzo',
+			description:
+				"Leggi le nostre condizioni generali di utilizzo e le implicazioni legali sull'uso di aid-ly.",
+		},
+		'privacy-policy': {
+			title: 'Privacy Policy',
+			description:
+				'Nella nostra informativa sulla privacy ti informiamo sulle modalità di raccolta dei dati da parte di aid-ly e sui tuoi diritti in merito al trattamento dei dati.',
+		},
+	},
 	map: {
 		more: 'Di più',
 		by: 'Creato da',

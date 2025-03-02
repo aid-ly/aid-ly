@@ -51,6 +51,6 @@ export const handle = async ({ event, resolve }) => {
 	}
 
 	return resolve(event, {
-		transformPageChunk: ({ html }) => html.replace('%lang%', lang),
+		transformPageChunk: ({ html }) => html.replaceAll('%lang%', lang),
 	});
 };
