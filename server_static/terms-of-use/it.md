@@ -1,7 +1,7 @@
 # Termini di utilizzo
 
 <!-- markdownlint-disable MD036 -->
-_Ultimo aggiornamento: 23 febbraio 2025_
+_Ultimo aggiornamento: 2 marzo 2025_
 
 Accedendo e utilizzando Aid-Ly.org ("Sito Web"), accetti di essere vincolato dai presenti Termini di utilizzo ("Termini").
 Se non accetti questi Termini, ti preghiamo di non utilizzare il Sito Web.
@@ -21,7 +21,7 @@ Qualsiasi contenuto o attività non finalizzato a perseguire questo scopo non è
 ## Contenuti dell'utente e responsabilità
 
 - Le organizzazioni sono l'unico soggetto responsabile per l'accuratezza, la legalità e il contenuto delle informazioni che pubblicano, comprese le informazioni sulla posizione, le descrizioni e altri dettagli.
-- Aid-Ly.org non è responsabile per alcun contenuto pubblicato dalle organizzazioni.
+- Il Sito Web non è responsabile per alcun contenuto pubblicato dalle organizzazioni.
 - Tutti i contenuti pubblicati devono essere direttamente correlati alla missione del Sito Web. I contenuti che non sono in linea con lo scopo di connettere gli utenti con iniziative non profit sono strettamente vietati.
 
 ## Uso del Sito Web e Attività vietate
@@ -33,13 +33,15 @@ Qualsiasi contenuto o attività non finalizzato a perseguire questo scopo non è
 ## Clausola di esclusione delle garanzie
 
 - Il Sito Web è fornito "così com'è", senza alcuna garanzia, espressa o implicita.
-- Aid-Ly.org declina tutte le garanzie, comprese le garanzie implicite di commerciabilità, idoneità per uno scopo particolare o non violazione.
+- Il Sito Web declina tutte le garanzie, comprese le garanzie implicite di commerciabilità, idoneità per uno scopo particolare o non violazione.
 - Non garantiamo che il Sito Web sarà privo di interruzioni o errori.
 
 ## Limitazione di responsabilità
 
-- In nessun caso Aid-Ly.org sarà responsabile per danni diretti, indiretti, incidentali, speciali, consequenziali o punitivi derivanti dall'uso del Sito Web o dalla fiducia in qualsiasi contenuto pubblicato dagli utenti.
+- In nessun caso il Sito Web sarà responsabile per danni diretti, indiretti, incidentali, speciali, consequenziali o punitivi derivanti dall'uso del Sito Web o dalla fiducia in qualsiasi contenuto pubblicato dagli utenti.
 - Ciò include, senza limitazioni, eventuali danni derivanti da inesattezze o errori nei contenuti forniti dalle organizzazioni.
+- Il Sito Web non è responsabile per incidenti, infortuni, controversie o qualsiasi altro evento che possa verificarsi nei luoghi di volontariato elencati sul Sito Web.
+- Il Sito Web non supervisiona né si assume responsabilità per le politiche, procedure o operazioni delle organizzazioni che utilizzano la piattaforma.
 
 ## Risoluzione delle controversie
 
