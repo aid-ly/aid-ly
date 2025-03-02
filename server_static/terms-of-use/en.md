@@ -1,7 +1,7 @@
 # Terms of use
 
 <!-- markdownlint-disable MD036 -->
-_Last updated: 23 Feb 2025_
+_Last updated: 2 Mar 2025_
 
 By accessing and using Aid-Ly.org ("Website"), you agree to be bound by these Terms of Use ("Terms").
 If you do not agree to these Terms, please do not use the Website.
@@ -21,7 +21,7 @@ Any content or activities that are not designed to fulfill this purpose are not 
 ## User Content and Responsibilities
 
 - Organizations are solely responsible for the accuracy, legality, and content of the information they post, including location data, descriptions, and other details.
-- Aid-Ly.org is not responsible for any content posted by organizations.
+- The Website is not responsible for any content posted by organizations.
 - All posted content must be directly related to the Website’s mission. Content that does not align with the intended purpose of connecting users with non-profit initiatives is strictly prohibited.
 
 ## Website Use and Prohibited Activities
@@ -33,13 +33,15 @@ Any content or activities that are not designed to fulfill this purpose are not 
 ## Disclaimer of Warranties
 
 - The Website is provided on an "as is" basis without any warranties, express or implied.
-- Aid-Ly.org disclaims all warranties, including any implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
+- The website disclaims all warranties, including any implied warranties of merchantability, fitness for a particular purpose, or non-infringement.
 - We do not guarantee that the Website will be uninterrupted or error-free.
 
 ## Limitation of Liability
 
-- Under no circumstances shall Aid-Ly.org be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of the Website or reliance on any user-posted content.
+- Under no circumstances shall the website be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from your use of the Website or reliance on any user-posted content.
 - This includes, without limitation, any damages arising from inaccuracies or errors in the content provided by organizations.
+- The Website is not responsible for any incidents, accidents, injuries, disputes, or any other occurrences that may happen at the volunteering locations listed on the Website.
+- The Website does not oversee or take responsibility for the policies, procedures, or operations of the organizations using the platform.
 
 ## Dispute Resolution
 
