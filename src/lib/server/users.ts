@@ -41,3 +41,5 @@ export const login = async (username: string, password: string): Promise<undefin
 
 export const getAllOrganizationIds = () =>
 	prisma.user.findMany({ select: { id: true, updatedAt: true } });
+
+export const getAllOrganizations = () => prisma.user.findMany({ include: { posts: true } });

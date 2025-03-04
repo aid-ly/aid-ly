@@ -172,4 +172,35 @@ export default {
 			under: 'è rilasciato sotto',
 		},
 	},
+	admin: {
+		console: {
+			title: 'Console Admin',
+			stats: {
+				posts: 'Numero Post',
+				orgs: 'Numero Organizzazioni',
+			},
+			orgs: {
+				create: 'Crea una nuova organizzazione',
+				table: {
+					head: [
+						'ID',
+						'Username',
+						'Nome',
+						'Email',
+						'Telefono',
+						'Sito Web',
+						'Descrizione',
+						'Creata Il',
+						'Aggiornata Il',
+					],
+					pagination: {
+						page: 'Pagina',
+						of: 'di',
+						next: 'Prossima',
+						previous: 'Precedente',
+					},
+				},
+			},
+		},
+	},
 };
