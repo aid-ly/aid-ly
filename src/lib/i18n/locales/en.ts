@@ -171,4 +171,35 @@ export default {
 			under: 'is licensed under',
 		},
 	},
+	admin: {
+		console: {
+			title: 'Admin Console',
+			stats: {
+				posts: 'Total Posts',
+				orgs: 'Total Organizations',
+			},
+			orgs: {
+				create: 'Create a new organization',
+				table: {
+					head: [
+						'ID',
+						'Username',
+						'Name',
+						'Email',
+						'Phone',
+						'Website',
+						'Description',
+						'Created At',
+						'Updated At',
+					],
+					pagination: {
+						page: 'Page',
+						of: 'of',
+						next: 'Next',
+						previous: 'Previous',
+					},
+				},
+			},
+		},
+	},
 };
