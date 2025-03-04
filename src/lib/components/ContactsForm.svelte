@@ -116,7 +116,7 @@
 		<div class="mt-6 text-center">
 			<button
 				type="submit"
-				class="rounded-md bg-red-500 px-6 py-3 text-white hover:bg-red-600 focus:ring-2 focus:ring-red-500 focus:outline-none"
+				class="rounded-md bg-red-500 px-6 py-3 hover:bg-red-600 focus:ring-2 focus:ring-red-500 focus:outline-none"
 			>
 				{locale.submit}
 			</button>
@@ -127,6 +127,7 @@
 <style lang="scss">
 	button {
 		cursor: pointer;
+		color: #fff;
 	}
 
 	.selection-tab {
