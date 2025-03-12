@@ -66,7 +66,7 @@
                 <a href="mailto:${org.email}" class="text-blue-500 visited:text-blue-500 hover:underline">${org.email}</a>
               </p>
               <p>
-                <a href="tel:${org.phoneNumber}" class="text-blue-500 visited:text-blue-500 hover:underline">${org.phoneNumber}</a>
+								${org.phoneNumber ? `<a href="tel:${org.phoneNumber}" class="text-blue-500 visited:text-blue-500 hover:underline">${org.phoneNumber}</a>` : ''}
               </p>
             </div>
 
