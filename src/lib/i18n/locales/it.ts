@@ -202,5 +202,19 @@ export default {
 				},
 			},
 		},
+		org: {
+			new: {
+				title: 'Crea una nuova Organizzazione',
+				form: {
+					username: 'Username',
+					email: 'Email',
+					phoneNumber: 'Numero di Telefono',
+					website: 'Sito Web',
+					name: 'Nome',
+					description: 'Descrizione',
+					submit: 'Crea',
+				},
+			},
+		},
 	},
 };
