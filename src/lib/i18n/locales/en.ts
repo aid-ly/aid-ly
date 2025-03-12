@@ -201,5 +201,19 @@ export default {
 				},
 			},
 		},
+		org: {
+			new: {
+				title: 'Create a new Organization',
+				form: {
+					username: 'Username',
+					email: 'Email',
+					phoneNumber: 'Phone Number',
+					website: 'Website',
+					name: 'Name',
+					description: 'Description',
+					submit: 'Create',
+				},
+			},
+		},
 	},
 };
