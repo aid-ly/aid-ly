@@ -3,6 +3,7 @@ import { sanitizeObject } from '../helpers';
 import type { SafeUser } from '../types/User';
 import prisma from './prisma';
 import bcrypt from 'bcryptjs';
+import crypto from 'crypto';
 
 export const getUserById = (id: string) => prisma.user.findUnique({ where: { id } });
 
@@ -29,6 +30,43 @@ export const create = (
 		},
 	});
 
+export const genResetPasswordToken = () =>
+	crypto.createHash('sha256').update(crypto.randomBytes(32).toString('hex')).digest('hex');
+
+export const resetPasswordRequest = async (userId: string, token: string) =>
+	prisma.passwordReset.create({
+		data: {
+			userId,
+			token,
+		},
+		include: {
+			user: true,
+		},
+	});
+
+export const createOrganization = async (
+	username: string,
+	name: string,
+	description: string,
+	email: string,
+	website: string,
+	phoneNumber?: string,
+) => {
+	const token = genResetPasswordToken();
+	const org = await create(
+		username,
+		token,
+		name,
+		description,
+		email,
+		website,
+		phoneNumber,
+		'ORGANIZATION',
+	);
+
+	return resetPasswordRequest(org.id, token);
+};
+
 export const login = async (username: string, password: string): Promise<undefined | SafeUser> => {
 	const user = await prisma.user.findFirst({ where: { OR: [{ username }, { email: username }] } });
 
@@ -36,7 +74,7 @@ export const login = async (username: string, password: string): Promise<undefin
 		return undefined;
 	}
 
-	return sanitizeObject(user, ['password', 'updatedAt']);
+	return sanitizeObject(user, ['password']);
 };
 
 export const getAllOrganizationIds = () =>
