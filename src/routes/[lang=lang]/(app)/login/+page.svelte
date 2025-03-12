@@ -25,6 +25,7 @@
 		max-width: 20rem;
 		margin: auto;
 		padding: 1.5rem;
+		padding-top: 0;
 		background-color: white;
 		border-radius: 0.75rem;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
