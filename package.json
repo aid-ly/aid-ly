@@ -1,7 +1,7 @@
 {
 	"name": "aid-ly",
 	"private": true,
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -10,7 +10,7 @@
 		"prepare": "husky",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-		"format": "prettier --write .",
+		"format": "prisma format && prettier --write .",
 		"lint": "prettier --check . && eslint ."
 	},
 	"devDependencies": {
@@ -32,7 +32,7 @@
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
-		"prisma": "^6.4.1",
+		"prisma": "^6.5.0",
 		"sass": "^1.84.0",
 		"svelte": "^5.0.0",
 		"svelte-check": "^4.0.0",
@@ -45,7 +45,7 @@
 		"vite": "^6.0.0"
 	},
 	"dependencies": {
-		"@prisma/client": "^6.4.1",
+		"@prisma/client": "^6.5.0",
 		"@tailwindcss/vite": "^4.0.6",
 		"accept-language-parser": "^1.5.0",
 		"bcryptjs": "^3.0.2",
