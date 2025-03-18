@@ -3,4 +3,8 @@
 	import Error from '$lib/components/Error.svelte';
 </script>
 
-<Error code={page.status} error={page.error?.message} cta={'Go back home'} />
+<Error
+	code={page.status}
+	error={page.error?.message}
+	cta={page.error?.cta || { message: 'Go back home', url: '/' }}
+/>

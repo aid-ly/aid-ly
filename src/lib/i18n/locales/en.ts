@@ -1,6 +1,7 @@
 export default {
 	errors: {
 		invalid_jwt: 'Invalid session token',
+		org_not_found: { message: 'Organization was not found', cta: 'Go Back' },
 	},
 	gdpr: {
 		banner: {
@@ -213,6 +214,17 @@ export default {
 					description: 'Description',
 					submit: 'Create',
 				},
+			},
+		},
+	},
+	emails: {
+		welcome: {
+			subject: 'Welcome to Aid-ly!',
+			body: {
+				welcome: 'Welcome to Aid-ly {{name}}!',
+				body: "Dear Organization Admin,\nWe are excited to have you on board! To get started, please create your password by clicking the button below.\nOnce you've set your password, you can log in to your admin dashboard to manage your organization.",
+				createPassword: 'Create Password',
+				footer: 'If you have any questions, feel free to contact our support team.',
 			},
 		},
 	},
