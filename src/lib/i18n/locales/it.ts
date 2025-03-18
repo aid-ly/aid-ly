@@ -1,6 +1,7 @@
 export default {
 	errors: {
 		invalid_jwt: 'Token di sessione non valido',
+		org_not_found: { message: "L'organizzazione non è stata trovata", cta: 'Torna indietro' },
 	},
 	gdpr: {
 		banner: {
@@ -214,6 +215,17 @@ export default {
 					description: 'Descrizione',
 					submit: 'Crea',
 				},
+			},
+		},
+	},
+	emails: {
+		welcome: {
+			subject: 'Benvenuti a Aid-ly!',
+			body: {
+				welcome: 'Benvenuto a Aid-ly {{name}}!',
+				body: "Caro admin dell'organizzazione,\nSiamo lieti di averti a bordo! Per iniziare, per favore crea la password associata all'organizzazione schiacciando il bottone qui sotto.\nUna volta impostata la password, puoi loggarti nella dashboard dell'organizzazione.",
+				createPassword: 'Crea Password',
+				footer: 'Se hai qualche domanda non esitare a contattare il nostro team di supporto.',
 			},
 		},
 	},

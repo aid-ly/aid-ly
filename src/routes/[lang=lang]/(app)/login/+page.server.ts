@@ -1,9 +1,10 @@
 import { dev } from '$app/environment';
 import { env } from '$env/dynamic/private';
+import { redirectFromSearchParams } from '$lib/helpers';
 import { common } from '$lib/i18n';
 import { sign } from '$lib/server/jwt';
 import { login } from '$lib/server/users';
-import { fail, redirect } from '@sveltejs/kit';
+import { fail } from '@sveltejs/kit';
 
 export const actions = {
 	default: async ({ request, locals, params, cookies, url }) => {
@@ -29,6 +30,6 @@ export const actions = {
 			sameSite: 'strict',
 		});
 
-		redirect(302, url.searchParams.get('to') || `/${params.lang}`);
+		redirectFromSearchParams(url.searchParams, `/${params.lang}/`);
 	},
 };

@@ -1,5 +1,7 @@
 <script lang="ts">
-	type Props = { code: number; error?: string; cta: string | null };
+	import type { ErrorCTA } from '$lib/types/Error';
+
+	type Props = { code: number; error?: string; cta?: ErrorCTA };
 	const { code, error, cta }: Props = $props();
 </script>
 
@@ -9,7 +11,7 @@
 		<p>{error}</p>
 	{/if}
 	{#if cta}
-		<a href="/">{cta}</a>
+		<a href={cta.url}>{cta.message}</a>
 	{/if}
 </div>
 

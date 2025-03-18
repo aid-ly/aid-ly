@@ -51,11 +51,10 @@ export const createOrganization = async (
 	email: string,
 	website: string,
 	phoneNumber?: string,
-) => {
-	const token = genResetPasswordToken();
-	const org = await create(
+) =>
+	create(
 		username,
-		token,
+		genResetPasswordToken(),
 		name,
 		description,
 		email,
@@ -63,9 +62,6 @@ export const createOrganization = async (
 		phoneNumber,
 		'ORGANIZATION',
 	);
-
-	return resetPasswordRequest(org.id, token);
-};
 
 export const login = async (username: string, password: string): Promise<undefined | SafeUser> => {
 	const user = await prisma.user.findFirst({ where: { OR: [{ username }, { email: username }] } });
