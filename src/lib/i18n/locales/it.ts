@@ -1,3 +1,13 @@
+const formInputs = {
+	username: 'Username',
+	email: 'Email',
+	phoneNumber: 'Numero di Telefono',
+	website: 'Sito Web',
+	name: 'Nome',
+	description: 'Descrizione',
+	submit: 'Crea',
+};
+
 export default {
 	errors: {
 		invalid_jwt: 'Token di sessione non valido',
@@ -206,15 +216,12 @@ export default {
 		org: {
 			new: {
 				title: 'Crea una nuova Organizzazione',
-				form: {
-					username: 'Username',
-					email: 'Email',
-					phoneNumber: 'Numero di Telefono',
-					website: 'Sito Web',
-					name: 'Nome',
-					description: 'Descrizione',
-					submit: 'Crea',
-				},
+				form: formInputs,
+			},
+			view: {
+				title: 'Modifica Organizzazione',
+				form: { ...formInputs, delete: 'Rimuovi Organizzazione', update: 'Salva' },
+				confirmDelete: 'Sei sicuro di voler eliminare questa organizzazione?',
 			},
 		},
 	},

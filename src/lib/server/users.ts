@@ -1,11 +1,15 @@
-import type { Role } from '@prisma/client';
+import type { Post, Prisma, Role, User } from '@prisma/client';
 import { sanitizeObject } from '../helpers';
 import type { SafeUser } from '../types/User';
 import prisma from './prisma';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 
-export const getUserById = (id: string) => prisma.user.findUnique({ where: { id } });
+export const getUserById = <T extends boolean>(id: string, includePosts: T = false as T) =>
+	prisma.user.findUnique({
+		where: { id },
+		include: includePosts ? { posts: true } : undefined,
+	}) as Promise<T extends true ? (User & { posts: Post[] }) | null : User | null>;
 
 export const create = (
 	username: string,
@@ -29,6 +33,11 @@ export const create = (
 			role,
 		},
 	});
+
+export const deleteUserById = (id: string) => prisma.user.delete({ where: { id } });
+
+export const updateUserById = (id: string, data: Prisma.UserUpdateInput) =>
+	prisma.user.update({ where: { id }, data });
 
 export const genResetPasswordToken = () =>
 	crypto.createHash('sha256').update(crypto.randomBytes(32).toString('hex')).digest('hex');
