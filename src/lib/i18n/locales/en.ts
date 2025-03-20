@@ -1,3 +1,12 @@
+const formInputs = {
+	username: 'Username',
+	email: 'Email',
+	phoneNumber: 'Phone Number',
+	website: 'Website',
+	name: 'Name',
+	description: 'Description',
+};
+
 export default {
 	errors: {
 		invalid_jwt: 'Invalid session token',
@@ -205,15 +214,12 @@ export default {
 		org: {
 			new: {
 				title: 'Create a new Organization',
-				form: {
-					username: 'Username',
-					email: 'Email',
-					phoneNumber: 'Phone Number',
-					website: 'Website',
-					name: 'Name',
-					description: 'Description',
-					submit: 'Create',
-				},
+				form: { ...formInputs, submit: 'Create' },
+			},
+			view: {
+				title: 'Edit Organization',
+				form: { ...formInputs, delete: 'Delete Organization', update: 'Save Changes' },
+				confirmDelete: 'Are you sure you want delete this organization?',
 			},
 		},
 	},
