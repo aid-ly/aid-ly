@@ -44,11 +44,9 @@ model Post {
 }
 
 model PasswordReset {
-  token  String
+  token  String @id
   userId String @unique
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
-
-  @@id([token, userId])
 }
 
 enum Role {

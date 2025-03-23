@@ -10,6 +10,7 @@ const formInputs = {
 export default {
 	errors: {
 		invalid_jwt: 'Invalid session token',
+		reset_token_not_found: { message: 'Reset Password Token not found', cta: 'Go back home' },
 		org_not_found: { message: 'Organization was not found', cta: 'Go Back' },
 	},
 	gdpr: {
@@ -114,6 +115,13 @@ export default {
 		},
 		error: {
 			invalidCredentials: 'Invalid username or password',
+		},
+
+		resetPassword: {
+			form: {
+				title: 'Reset Password',
+			},
+			passwords_dont_match: "The passwords don't match",
 		},
 	},
 	header: {

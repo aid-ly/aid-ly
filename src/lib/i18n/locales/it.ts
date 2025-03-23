@@ -11,6 +11,10 @@ const formInputs = {
 export default {
 	errors: {
 		invalid_jwt: 'Token di sessione non valido',
+		reset_token_not_found: {
+			message: 'Token di Reset della Password non trovato',
+			cta: 'Vai alla home',
+		},
 		org_not_found: { message: "L'organizzazione non è stata trovata", cta: 'Torna indietro' },
 	},
 	gdpr: {
@@ -115,6 +119,13 @@ export default {
 		},
 		error: {
 			invalidCredentials: 'Username o password non corrette',
+		},
+
+		resetPassword: {
+			form: {
+				title: 'Reimposta Password',
+			},
+			passwords_dont_match: 'Le password non sono uguali',
 		},
 	},
 	header: {

@@ -10,33 +10,29 @@ export const actions = {
 
 		const normalize = (name: string) => formData.get(name)!.toString();
 
-		try {
-			const org = await createOrganization(
-				normalize('username'),
-				normalize('name'),
-				normalize('description'),
-				normalize('email'),
-				normalize('website'),
-				normalize('phoneNumber') || undefined,
-			);
+		const org = await createOrganization(
+			normalize('username'),
+			normalize('name'),
+			normalize('description'),
+			normalize('email'),
+			normalize('website'),
+			normalize('phoneNumber') || undefined,
+		);
 
-			resetPasswordRequest(org.id, genResetPasswordToken()).then((reset) => {
-				sendMail(
-					env.PUBLIC_CONTACTS_EMAIL,
-					org.email,
-					locals.locale.emails.welcome.subject,
-					templates.welcome({
-						locale: locals.locale.emails.welcome.body,
-						lang: params.lang as Language,
-						org,
-						resetToken: reset.token,
-					}),
-				);
-			});
+		const reset = await resetPasswordRequest(org.id, genResetPasswordToken());
 
-			redirect(301, `/${params.lang}/admin/`);
-		} catch (err) {
-			console.error(err);
-		}
+		await sendMail(
+			env.PUBLIC_CONTACTS_EMAIL,
+			org.email,
+			locals.locale.emails.welcome.subject,
+			templates.welcome({
+				locale: locals.locale.emails.welcome.body,
+				lang: params.lang as Language,
+				org,
+				resetToken: reset.token,
+			}),
+		);
+
+		return redirect(301, `/${params.lang}/admin/`);
 	},
 };
