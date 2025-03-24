@@ -11,7 +11,7 @@
 	title={locale.login.form.title}
 	inputs={[
 		{ type: 'text', name: 'username', label: locale.login.form.username, required: true },
-		{ type: 'password', name: 'passwordI', label: locale.login.form.password, required: true },
+		{ type: 'password', name: 'password', label: locale.login.form.password, required: true },
 	]}
 	submit={locale.login.form.submit}
 	bind:error

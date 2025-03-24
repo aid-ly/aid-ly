@@ -6,7 +6,7 @@
 
 	let error: string | undefined = $state();
 
-	const inputs = [
+	let inputs = $state([
 		{
 			type: 'password',
 			label: 'New password',
@@ -23,7 +23,7 @@
 			required: true,
 			value: '',
 		},
-	];
+	]);
 
 	const onsubmit = (cancel: () => void) => {
 		if (inputs[0].value !== inputs[1].value) {
@@ -33,4 +33,4 @@
 	};
 </script>
 
-<ModularForm title={locale.form.title} {inputs} submit="Reset" bind:error {onsubmit} />
+<ModularForm title={locale.form.title} bind:inputs submit="Reset" bind:error {onsubmit} />
