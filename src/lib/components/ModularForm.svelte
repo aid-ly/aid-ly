@@ -18,7 +18,7 @@
 		error?: string;
 	};
 
-	const { title, inputs, error = $bindable(), submit, onsubmit }: Props = $props();
+	const { title, inputs = $bindable(), error = $bindable(), submit, onsubmit }: Props = $props();
 
 	const _onsubmit = (cancel: () => void) => {
 		if (onsubmit) {
