@@ -1,20 +1,23 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
 
+	type Input = {
+		type: string;
+		label: string;
+		placeholder?: string;
+		name: string;
+		required: boolean;
+		value?: string;
+	};
+
 	type Props = {
 		title: string;
-		inputs: {
-			type: string;
-			label: string;
-			placeholder?: string;
-			name: string;
-			required: boolean;
-			value?: string;
-		}[];
+		inputs: Input[];
 		submit: string;
 		onsubmit?: (cancel: () => void) => void;
 		error?: string;
 	};
+
 	const { title, inputs, error = $bindable(), submit, onsubmit }: Props = $props();
 
 	const _onsubmit = (cancel: () => void) => {
