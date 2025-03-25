@@ -1,105 +1,166 @@
 <script lang="ts">
+	import { env } from '$env/dynamic/public';
 	import Map from '$lib/components/Map.svelte';
+	import ModularForm from '$lib/components/ModularForm.svelte';
 	import Post from '$lib/components/org/Post.svelte';
+	import type { ActionResult } from '@sveltejs/kit';
 
-	export let data;
+	const { data } = $props();
+	const { user, locale, lang } = data;
+	let posts = $state(data.posts);
 
-	const { user, posts, locale, lang } = data;
+	const forwardGeocode = async (query: string) => {
+		const url = `https://api.mapbox.com/search/geocode/v6/forward?q=${query}&access_token=${env.PUBLIC_MAPBOX_TOKEN}&lang=${lang}&types=place,address&limit=1`;
+		const res = await (await fetch(url)).json();
+		const coordinates = res.features[0]?.properties?.coordinates;
+		return { lng: coordinates?.longitude, lat: coordinates?.latitude };
+	};
+
+	let newPostInputs = $state([
+		{
+			type: 'text',
+			label: 'Title',
+			name: 'title',
+			placeholder: 'Post title',
+			required: true,
+		},
+		{
+			type: 'text',
+			label: 'Place',
+			name: 'place',
+			placeholder: 'The location of the post',
+			required: true,
+			value: '',
+		},
+		{
+			type: 'hidden',
+			label: '',
+			name: 'lng',
+			required: true,
+		},
+		{
+			type: 'hidden',
+			label: '',
+			name: 'lat',
+			required: true,
+		},
+		{
+			type: 'textarea',
+			label: 'Description',
+			name: 'description',
+			placeholder: 'Post description',
+			required: true,
+		},
+	]);
+
+	const createNewPost = async (_: () => void, formData: FormData) => {
+		const coordinates = await forwardGeocode(newPostInputs[1].value!);
+		formData.set('lng', coordinates.lng);
+		formData.set('lat', coordinates.lat);
+
+		return ({ result, update }: { result: ActionResult; update: () => void }) => {
+			if (result.type === 'success') {
+				posts.push(result.data?.post);
+			}
+
+			update();
+		};
+	};
+
+	const updateUser = () => {
+		return () => {};
+	};
 </script>
 
-<main class="mx-auto max-w-4xl space-y-8 p-8">
-	<section class="rounded-lg bg-white p-6 shadow-lg">
-		<form action="?/user" method="post" class="space-y-6">
-			<h1 class="text-3xl font-semibold text-gray-800">Organization Information</h1>
-
-			<div>
-				<label for="username" class="block text-sm font-medium text-gray-700">Username</label>
-				<input
-					class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-					type="text"
-					name="username"
-					id="username"
-					value={user.username}
-				/>
-			</div>
-
-			<div>
-				<label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-				<input
-					class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-					type="text"
-					name="name"
-					id="name"
-					value={user.name}
-				/>
-			</div>
-
-			<div>
-				<label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-				<input
-					class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-					type="text"
-					name="email"
-					id="email"
-					value={user.email}
-				/>
-			</div>
-
-			<div>
-				<label for="phoneNumber" class="block text-sm font-medium text-gray-700">Phone Number</label
-				>
-				<input
-					class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-					type="text"
-					name="phoneNumber"
-					id="phoneNumber"
-					value={user.phoneNumber}
-				/>
-			</div>
-
-			<div>
-				<label for="website" class="block text-sm font-medium text-gray-700">Website</label>
-				<input
-					class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-					type="text"
-					name="website"
-					id="website"
-					value={user.website}
-				/>
-			</div>
-
-			<div>
-				<label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-				<textarea
-					name="description"
-					id="description"
-					class="mt-1 block w-full rounded-md border border-gray-300 px-4 py-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
-					rows="4">{user.description}</textarea
-				>
-			</div>
-
-			<button type="submit">Save Changes</button>
-		</form>
+<div class="mx-auto max-w-4xl space-y-8 p-8">
+	<section id="org">
+		<ModularForm
+			title="Organization Information"
+			action="?/editUser"
+			inputs={[
+				{
+					type: 'text',
+					name: 'username',
+					label: 'Username',
+					required: true,
+					placeholder: "The organization's username",
+					value: user.username,
+				},
+				{
+					type: 'text',
+					name: 'name',
+					label: 'Name',
+					required: true,
+					placeholder: "The organization's display name",
+					value: user.name,
+				},
+				{
+					type: 'email',
+					name: 'email',
+					label: 'Email',
+					required: true,
+					placeholder: "The organization's email",
+					value: user.email,
+				},
+				{
+					type: 'tel',
+					name: 'phoneNumber',
+					label: 'Phone Number',
+					required: false,
+					placeholder: "The organization's phone number",
+					value: user.phoneNumber || undefined,
+				},
+				{
+					type: 'text',
+					name: 'website',
+					label: 'Website',
+					required: true,
+					placeholder: "The organization's website",
+					value: user.website,
+				},
+				{
+					type: 'textarea',
+					name: 'description',
+					label: 'Description',
+					required: true,
+					placeholder: "The organization's description",
+					value: user.description,
+				},
+			]}
+			submit={[{ text: 'Save Changes', primary: true }]}
+			onsubmit={updateUser}
+		/>
 	</section>
 
-	<section class="rounded-lg bg-white p-6 shadow-lg">
-		<h2 class="text-2xl font-semibold text-gray-800">Posts</h2>
-		<ul class="mt-4 space-y-6">
-			{#each posts as post}
-				<li>
-					<Post {post} />
-				</li>
-			{/each}
-		</ul>
+	<section id="posts">
+		<ModularForm
+			title={'Create a new Post'}
+			titleLevel="h2"
+			bind:inputs={newPostInputs}
+			submit={[{ text: 'Create', action: '?/newPost', primary: true }]}
+			onsubmit={createNewPost}
+		/>
+
+		{#each posts as post}
+			<Post {post} {forwardGeocode} {lang} />
+		{/each}
 	</section>
 
-	<div class="map">
-		<Map {posts} locale={locale.map} {lang} />
-	</div>
-</main>
+	<section id="map">
+		<Map bind:posts locale={locale.map} {lang} />
+	</section>
+</div>
 
 <style lang="scss">
-	.map {
+	#posts {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		gap: 20px;
+		flex-wrap: wrap;
+	}
+
+	#map {
 		height: 80vh;
 		border-radius: 8px;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

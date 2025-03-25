@@ -2,7 +2,7 @@
 	import { env } from '$env/dynamic/public';
 	import ContactsForm from '$lib/components/ContactsForm.svelte';
 
-	export let data;
+	const { data } = $props();
 </script>
 
 <ContactsForm

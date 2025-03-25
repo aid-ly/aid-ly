@@ -1,5 +1,5 @@
-import type { SafePostWithUser } from '$lib/types/User';
 import prisma from './prisma';
+import type { Prisma } from '@prisma/client';
 
 const userSelect = {
 	id: true,
@@ -10,10 +10,14 @@ const userSelect = {
 	phoneNumber: true,
 	website: true,
 	createdAt: true,
+	updatedAt: true,
 	role: true,
 };
 
-export const getAll = (): Promise<SafePostWithUser[]> =>
+export const create = (data: Prisma.PostCreateInput) =>
+	prisma.post.create({ data, include: { user: { select: userSelect } } });
+
+export const getAll = () =>
 	prisma.post.findMany({
 		include: {
 			user: {
@@ -22,7 +26,7 @@ export const getAll = (): Promise<SafePostWithUser[]> =>
 		},
 	});
 
-export const getByUserId = (userId: string): Promise<SafePostWithUser[]> =>
+export const getByUserId = (userId: string) =>
 	prisma.post.findMany({
 		where: { userId },
 		include: {
@@ -31,3 +35,9 @@ export const getByUserId = (userId: string): Promise<SafePostWithUser[]> =>
 			},
 		},
 	});
+
+export const updateById = (id: string, data: Prisma.PostUpdateInput) =>
+	prisma.post.update({ where: { id }, data });
+
+export const deleteById = (id: string, userId: string) =>
+	prisma.post.delete({ where: { id, userId } });
