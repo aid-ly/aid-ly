@@ -19,16 +19,16 @@
 	let newPostInputs = $state([
 		{
 			type: 'text',
-			label: 'Title',
+			label: locale.org.posts.inputs.title.label,
 			name: 'title',
-			placeholder: 'Post title',
+			placeholder: locale.org.posts.inputs.title.placeholder,
 			required: true,
 		},
 		{
 			type: 'text',
-			label: 'Place',
+			label: locale.org.posts.inputs.place.label,
 			name: 'place',
-			placeholder: 'The location of the post',
+			placeholder: locale.org.posts.inputs.place.placeholder,
 			required: true,
 			value: '',
 		},
@@ -46,9 +46,9 @@
 		},
 		{
 			type: 'textarea',
-			label: 'Description',
+			label: locale.org.posts.inputs.description.label,
 			name: 'description',
-			placeholder: 'Post description',
+			placeholder: locale.org.posts.inputs.description.placeholder,
 			required: true,
 		},
 	]);
@@ -66,83 +66,78 @@
 			update();
 		};
 	};
-
-	const updateUser = () => {
-		return () => {};
-	};
 </script>
 
 <div class="mx-auto max-w-4xl space-y-8 p-8">
 	<section id="org">
 		<ModularForm
-			title="Organization Information"
+			title={locale.org.form.title}
 			action="?/editUser"
 			inputs={[
 				{
 					type: 'text',
 					name: 'username',
-					label: 'Username',
+					label: locale.org.form.inputs.username.label,
 					required: true,
-					placeholder: "The organization's username",
+					placeholder: locale.org.form.inputs.username.placeholder,
 					value: user.username,
 				},
 				{
 					type: 'text',
 					name: 'name',
-					label: 'Name',
+					label: locale.org.form.inputs.name.label,
 					required: true,
-					placeholder: "The organization's display name",
+					placeholder: locale.org.form.inputs.name.placeholder,
 					value: user.name,
 				},
 				{
 					type: 'email',
 					name: 'email',
-					label: 'Email',
+					label: locale.org.form.inputs.email.label,
 					required: true,
-					placeholder: "The organization's email",
+					placeholder: locale.org.form.inputs.email.placeholder,
 					value: user.email,
 				},
 				{
 					type: 'tel',
 					name: 'phoneNumber',
-					label: 'Phone Number',
+					label: locale.org.form.inputs.phoneNumber.label,
 					required: false,
-					placeholder: "The organization's phone number",
+					placeholder: locale.org.form.inputs.phoneNumber.placeholder,
 					value: user.phoneNumber || undefined,
 				},
 				{
 					type: 'text',
 					name: 'website',
-					label: 'Website',
+					label: locale.org.form.inputs.website.label,
 					required: true,
-					placeholder: "The organization's website",
+					placeholder: locale.org.form.inputs.website.placeholder,
 					value: user.website,
 				},
 				{
 					type: 'textarea',
 					name: 'description',
-					label: 'Description',
+					label: locale.org.form.inputs.description.label,
 					required: true,
-					placeholder: "The organization's description",
+					placeholder: locale.org.form.inputs.description.placeholder,
 					value: user.description,
 				},
 			]}
-			submit={[{ text: 'Save Changes', primary: true }]}
-			onsubmit={updateUser}
+			submit={[{ text: locale.org.form.submit, primary: true }]}
+			onsubmit={() => () => {}}
 		/>
 	</section>
 
 	<section id="posts">
 		<ModularForm
-			title={'Create a new Post'}
-			titleLevel="h2"
+			title={{ text: locale.org.posts.create.title, level: 'h2' }}
 			bind:inputs={newPostInputs}
-			submit={[{ text: 'Create', action: '?/newPost', primary: true }]}
+			submit={[{ text: locale.org.posts.create.submit, action: '?/newPost', primary: true }]}
 			onsubmit={createNewPost}
 		/>
 
 		{#each posts as post}
-			<Post {post} {forwardGeocode} {lang} />
+			<Post {post} {forwardGeocode} {lang} locale={locale.org.posts} />
 		{/each}
 	</section>
 

@@ -47,6 +47,10 @@ export default {
 			title: 'Nonprofit Organization',
 			description: 'View the nonprofit organization.',
 		},
+		post: {
+			title: 'Post',
+			description: 'View complete infomation about this post.',
+		},
 		admin: {
 			title: 'Admin Console',
 			description: 'The admin console.',
@@ -228,6 +232,60 @@ export default {
 				title: 'Edit Organization',
 				form: { ...formInputs, delete: 'Delete Organization', update: 'Save Changes' },
 				confirmDelete: 'Are you sure you want delete this organization?',
+			},
+		},
+	},
+	org: {
+		form: {
+			title: 'Organization Information',
+			inputs: {
+				username: {
+					label: 'Username',
+					placeholder: "The organization's username",
+				},
+				name: {
+					label: 'Name',
+					placeholder: "The organization's display name",
+				},
+				email: {
+					label: 'Email',
+					placeholder: "The organization's email",
+				},
+				phoneNumber: {
+					label: 'Phone Number',
+					placeholder: "The organization's phone number",
+				},
+				website: {
+					label: 'Website',
+					placeholder: "The organization's website",
+				},
+				description: {
+					label: 'Description',
+					placeholder: "The organization's description",
+				},
+			},
+			submit: 'Save Changes',
+		},
+		posts: {
+			create: {
+				title: 'Create a New Post',
+				submit: 'Create',
+			},
+			title: 'Post',
+			inputs: {
+				title: {
+					label: 'Title',
+					placeholder: 'Post title',
+				},
+				place: {
+					label: 'Place',
+					placeholder: 'The location on the map',
+					loading: 'Loading...',
+				},
+				description: {
+					label: 'Description',
+					placeholder: 'Post description',
+				},
 			},
 		},
 	},

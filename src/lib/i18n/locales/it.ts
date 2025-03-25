@@ -49,7 +49,11 @@ export default {
 		},
 		org: {
 			title: 'Organizzazione non profit',
-			description: "Visualizza l'organizzazione non profit",
+			description: "Visualizza l'organizzazione non profit.",
+		},
+		post: {
+			title: 'Post',
+			description: 'Visualizza le informazioni complete su questo post.',
 		},
 		admin: {
 			title: 'Console Admin',
@@ -233,6 +237,60 @@ export default {
 				title: 'Modifica Organizzazione',
 				form: { ...formInputs, delete: 'Rimuovi Organizzazione', update: 'Salva' },
 				confirmDelete: 'Sei sicuro di voler eliminare questa organizzazione?',
+			},
+		},
+	},
+	org: {
+		form: {
+			title: "Informazioni sull'Organizzazione",
+			inputs: {
+				username: {
+					label: 'Username',
+					placeholder: "Lo username dell'organizzazione",
+				},
+				name: {
+					label: 'Nome',
+					placeholder: "Il nome dell'organizzazione",
+				},
+				email: {
+					label: 'Email',
+					placeholder: "L'email dell'organizzazione",
+				},
+				phoneNumber: {
+					label: 'Numero di Telefono',
+					placeholder: "Il numero di telefono dell'organizzazione",
+				},
+				website: {
+					label: 'Sito Web',
+					placeholder: "Il sito web dell'organizzazione",
+				},
+				description: {
+					label: 'Descrizione',
+					placeholder: "La descrizione dell'organizzazione",
+				},
+			},
+			submit: 'Salva',
+		},
+		posts: {
+			create: {
+				title: 'Crea un Nuovo Post',
+				submit: 'Crea',
+			},
+			title: 'Post',
+			inputs: {
+				title: {
+					label: 'Titolo',
+					placeholder: 'Il Titolo del post',
+				},
+				place: {
+					label: 'Posto',
+					placeholder: 'Il luogo sulla mappa',
+					loading: 'Caricando...',
+				},
+				description: {
+					label: 'Descrizione',
+					placeholder: 'La descrizione del post',
+				},
 			},
 		},
 	},

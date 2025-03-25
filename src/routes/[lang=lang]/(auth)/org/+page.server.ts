@@ -1,7 +1,14 @@
-import { create, deleteById, updateById } from '$lib/server/posts';
-import { updateUserById } from '$lib/server/users.js';
+import { getByUserId, create, deleteById, updateById } from '$lib/server/posts';
+import { updateUserById } from '$lib/server/users';
 
 export const trailingSlash = 'always';
+
+export const load = async ({ locals }) => {
+	return {
+		user: locals.user!,
+		posts: await getByUserId(locals.user!.id),
+	};
+};
 
 const validateData = <T extends Record<string, string | number>>(data: T) => {
 	Object.entries(data).forEach(([key, value]) => {
