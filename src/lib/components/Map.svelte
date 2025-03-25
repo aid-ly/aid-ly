@@ -58,7 +58,7 @@
             <div class="mt-4 border-t pt-3">
               <p class="text-xs text-gray-500">
               ${locale.by}
-                <a href="/${lang}/org/${org.id}" title="${org.description.length > 32 ? org.description.slice(0, 32) + '...' : org.description}" class="text-blue-500 visited:text-blue-500 hover:underline">
+                <a href="/${lang}/org/${org.username}" title="${org.description.length > 32 ? org.description.slice(0, 32) + '...' : org.description}" class="text-blue-500 visited:text-blue-500 hover:underline">
                   ${org.name}
                 </a>
               </p>

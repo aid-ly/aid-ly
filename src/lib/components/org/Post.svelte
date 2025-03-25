@@ -3,33 +3,34 @@
 	import { env } from '$env/dynamic/public';
 	import type { SafePostWithUser } from '$lib/types/User';
 	import { onMount } from 'svelte';
-	import { getFullLocale, type Language } from '$lib/i18n';
+	import { getFullLocale, type Language, type Locale } from '$lib/i18n';
 	import type { ActionResult } from '@sveltejs/kit';
 
 	type Props = {
 		post: SafePostWithUser;
 		forwardGeocode: (query: string) => Promise<{ lat: number; lng: number }>;
+		locale: Locale['org']['posts'];
 		lang: Language;
 	};
 
-	const { post, forwardGeocode, lang }: Props = $props();
+	const { post, forwardGeocode, locale, lang }: Props = $props();
 
 	let inputs = $state([
 		{
 			type: 'text',
-			label: 'Title',
+			label: locale.inputs.title.label,
 			name: 'title',
-			placeholder: 'Post title',
+			placeholder: locale.inputs.title.placeholder,
 			required: true,
 			value: post.title,
 		},
 		{
 			type: 'text',
-			label: 'Place',
+			label: locale.inputs.place.label,
 			name: 'place',
-			placeholder: 'The location of the post',
+			placeholder: locale.inputs.place.placeholder,
 			required: true,
-			value: 'Loading...',
+			value: locale.inputs.place.loading,
 		},
 		{
 			type: 'hidden',
@@ -47,9 +48,9 @@
 		},
 		{
 			type: 'textarea',
-			label: 'Description',
+			label: locale.inputs.description.label,
 			name: 'description',
-			placeholder: 'Post description',
+			placeholder: locale.inputs.description.placeholder,
 			required: true,
 			value: post.description,
 		},
@@ -100,7 +101,7 @@
 
 {#if show}
 	<ModularForm
-		title="Post"
+		title={{ text: locale.title, url: `/${lang}/post/${post.id}`, target: '_blank' }}
 		bind:inputs
 		submit={[
 			{ text: 'Save Post', action: '?/editPost', primary: true },

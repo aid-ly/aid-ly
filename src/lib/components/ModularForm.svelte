@@ -11,8 +11,10 @@
 	};
 
 	type Props = {
-		title: string;
-		titleLevel?: keyof HTMLElementTagNameMap /* global HTMLElementTagNameMap */;
+		/* global HTMLElementTagNameMap */
+		title:
+			| string
+			| { text: string; level?: keyof HTMLElementTagNameMap; url?: string; target?: string };
 		action?: string;
 		inputs: Input[];
 		submit:
@@ -24,7 +26,6 @@
 
 	const {
 		title,
-		titleLevel = 'h1',
 		action,
 		inputs = $bindable(),
 		error = $bindable(),
@@ -40,9 +41,17 @@
 </script>
 
 <form {action} method="post" use:enhance={({ cancel, formData }) => _onsubmit(cancel, formData)}>
-	<svelte:element this={titleLevel} class="title">
-		{title}
-	</svelte:element>
+	{#if typeof title === 'string'}
+		<h1 class="title">{title}</h1>
+	{:else}
+		<svelte:element this={title.level ?? 'h1'} class="title">
+			{#if title.url}
+				<a href={title.url} target={title.target}>{title.text}</a>
+			{:else}
+				{title.text}
+			{/if}
+		</svelte:element>
+	{/if}
 
 	{#each inputs as input}
 		<label for={input.name}>{input.label}</label>
