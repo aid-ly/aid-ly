@@ -6,5 +6,3 @@ export const load = async ({ locals }) => {
 		posts: await getByUserId(locals.user!.id),
 	};
 };
-
-// TODO: support actions

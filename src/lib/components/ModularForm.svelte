@@ -12,47 +12,72 @@
 
 	type Props = {
 		title: string;
+		titleLevel?: keyof HTMLElementTagNameMap /* global HTMLElementTagNameMap */;
+		action?: string;
 		inputs: Input[];
-		submit: string;
-		onsubmit?: (cancel: () => void) => void;
+		submit:
+			| string
+			| { text: string; action?: string; primary?: boolean; onclick?: (e: Event) => void }[];
+		onsubmit?: (cancel: () => void, formData: FormData) => void;
 		error?: string;
 	};
 
-	const { title, inputs = $bindable(), error = $bindable(), submit, onsubmit }: Props = $props();
+	const {
+		title,
+		titleLevel = 'h1',
+		action,
+		inputs = $bindable(),
+		error = $bindable(),
+		submit,
+		onsubmit,
+	}: Props = $props();
 
-	const _onsubmit = (cancel: () => void) => {
+	const _onsubmit = (cancel: () => void, formData: FormData) => {
 		if (onsubmit) {
-			return onsubmit(cancel);
+			return onsubmit(cancel, formData);
 		}
 	};
 </script>
 
-<form method="post" use:enhance={({ cancel }) => _onsubmit(cancel)}>
-	<h1>{title}</h1>
+<form {action} method="post" use:enhance={({ cancel, formData }) => _onsubmit(cancel, formData)}>
+	<svelte:element this={titleLevel} class="title">
+		{title}
+	</svelte:element>
 
 	{#each inputs as input}
 		<label for={input.name}>{input.label}</label>
-		<input
-			type={input.type}
-			name={input.name}
-			id={input.name}
-			required={input.required}
-			placeholder={input.placeholder}
-			bind:value={input.value}
-		/>
+		{#if input.type === 'textarea'}
+			<textarea {...input} id={input.name} bind:value={input.value} rows="4" class="w-[100%]"
+			></textarea>
+		{:else}
+			<input {...input} id={input.name} bind:value={input.value} />
+		{/if}
 	{/each}
 
 	{#if error}
 		<p class="error">{error}</p>
 	{/if}
 
-	<button type="submit">{submit}</button>
+	{#if typeof submit === 'string'}
+		<button type="submit">{submit}</button>
+	{:else}
+		<div class="actions">
+			{#each submit as btn}
+				<button
+					type="submit"
+					formaction={btn.action}
+					class:primary={btn.primary}
+					onclick={btn.onclick}
+				>
+					{btn.text}
+				</button>
+			{/each}
+		</div>
+	{/if}
 </form>
 
 <style lang="scss">
 	form {
-		max-width: 20rem;
-		width: 500px;
 		margin: auto;
 		padding: 1.5rem;
 		padding-top: 0;
@@ -60,7 +85,7 @@
 		border-radius: 0.75rem;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-		h1 {
+		.title {
 			font-size: 1.5rem;
 			font-weight: bold;
 			text-align: center;
@@ -76,7 +101,8 @@
 			margin: 0.5rem 0;
 		}
 
-		input {
+		input,
+		textarea {
 			width: 100%;
 			padding: 0.5rem 1rem;
 			border: 1px solid #d1d5db;
@@ -96,6 +122,13 @@
 			font-weight: 450;
 		}
 
+		.actions {
+			display: flex;
+			gap: 20px;
+			align-items: center;
+			justify-content: space-between;
+		}
+
 		button {
 			width: 100%;
 			background-color: var(--color-red-400);
@@ -106,9 +139,18 @@
 			cursor: pointer;
 			outline: none;
 			margin-top: 10px;
+			transition: background-color 0.15s ease;
 
 			&:hover {
 				background-color: var(--color-red-500);
+			}
+
+			&.primary {
+				background-color: var(--color-indigo-500);
+
+				&:hover {
+					background-color: var(--color-indigo-700);
+				}
 			}
 
 			&:focus {

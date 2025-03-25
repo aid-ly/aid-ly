@@ -11,4 +11,19 @@ const AVAILABLE_LANGUAGES: Language[] = Object.keys(locales) as (keyof typeof lo
 
 const FALLBACK: Language = 'it';
 
-export { locales, common, FALLBACK, AVAILABLE_LANGUAGES, type Language, type Locale };
+const getFullLocale = (lang: Language) => {
+	return {
+		it: 'it-IT',
+		en: 'en-US',
+	}[lang];
+};
+
+export {
+	getFullLocale,
+	locales,
+	common,
+	FALLBACK,
+	AVAILABLE_LANGUAGES,
+	type Language,
+	type Locale,
+};
