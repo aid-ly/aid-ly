@@ -1,6 +1,6 @@
 <script lang="ts">
 	import CookieBanner from '$lib/components/CookieBanner.svelte';
-	import SEO from '$lib/components/SEO.svelte';
+	import PageSEO from '$lib/components/PageSEO.svelte';
 
 	const { children, data } = $props();
 	const { locale, lang, page } = data;
@@ -24,4 +24,4 @@
 
 <CookieBanner {initAnalytics} locale={locale.gdpr.banner} />
 
-<SEO locale={locale.seo} {lang} page={page as keyof typeof locale.seo} />
+<PageSEO locale={locale.seo} {lang} page={page as keyof typeof locale.seo} />
