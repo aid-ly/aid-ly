@@ -13,6 +13,15 @@ export const getUserById = <T extends boolean>(id: string, includePosts: T = fal
 		include: includePosts ? { posts: true } : undefined,
 	}) as Promise<T extends true ? (User & { posts: Post[] }) | null : User | null>;
 
+export const getUserByUsername = <T extends boolean>(
+	username: string,
+	includePosts: T = false as T,
+) =>
+	prisma.user.findUnique({
+		where: { username },
+		include: includePosts ? { posts: true } : undefined,
+	}) as Promise<T extends true ? (User & { posts: Post[] }) | null : User | null>;
+
 export const create = (
 	username: string,
 	password: string,
@@ -84,7 +93,7 @@ export const login = async (username: string, password: string): Promise<undefin
 	return sanitizeObject(user, ['password']);
 };
 
-export const getAllOrganizationIds = () =>
-	prisma.user.findMany({ select: { id: true, updatedAt: true } });
+export const getAllOrganizationUsernames = () =>
+	prisma.user.findMany({ select: { username: true, updatedAt: true } });
 
 export const getAllOrganizations = () => prisma.user.findMany({ include: { posts: true } });

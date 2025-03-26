@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+	import { onMount } from 'svelte';
 
 	type Input = {
 		type: string;
@@ -16,6 +17,7 @@
 			| string
 			| { text: string; level?: keyof HTMLElementTagNameMap; url?: string; target?: string };
 		action?: string;
+		method?: 'get' | 'post';
 		inputs: Input[];
 		submit:
 			| string
@@ -27,20 +29,31 @@
 	const {
 		title,
 		action,
+		method = 'post',
 		inputs = $bindable(),
 		error = $bindable(),
 		submit,
 		onsubmit,
 	}: Props = $props();
 
+	let form: HTMLFormElement;
+
 	const _onsubmit = (cancel: () => void, formData: FormData) => {
 		if (onsubmit) {
 			return onsubmit(cancel, formData);
 		}
 	};
+
+	onMount(() => {
+		if (method === 'post') {
+			enhance(form, ({ cancel, formData }: { cancel: () => void; formData: FormData }) =>
+				_onsubmit(cancel, formData),
+			);
+		}
+	});
 </script>
 
-<form {action} method="post" use:enhance={({ cancel, formData }) => _onsubmit(cancel, formData)}>
+<form {action} {method} bind:this={form}>
 	{#if typeof title === 'string'}
 		<h1 class="title">{title}</h1>
 	{:else}

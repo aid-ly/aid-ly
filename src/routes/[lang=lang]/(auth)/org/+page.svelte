@@ -19,16 +19,16 @@
 	let newPostInputs = $state([
 		{
 			type: 'text',
-			label: locale.org.posts.inputs.title.label,
+			label: locale.orgAdmin.posts.inputs.title.label,
 			name: 'title',
-			placeholder: locale.org.posts.inputs.title.placeholder,
+			placeholder: locale.orgAdmin.posts.inputs.title.placeholder,
 			required: true,
 		},
 		{
 			type: 'text',
-			label: locale.org.posts.inputs.place.label,
+			label: locale.orgAdmin.posts.inputs.place.label,
 			name: 'place',
-			placeholder: locale.org.posts.inputs.place.placeholder,
+			placeholder: locale.orgAdmin.posts.inputs.place.placeholder,
 			required: true,
 			value: '',
 		},
@@ -46,9 +46,9 @@
 		},
 		{
 			type: 'textarea',
-			label: locale.org.posts.inputs.description.label,
+			label: locale.orgAdmin.posts.inputs.description.label,
 			name: 'description',
-			placeholder: locale.org.posts.inputs.description.placeholder,
+			placeholder: locale.orgAdmin.posts.inputs.description.placeholder,
 			required: true,
 		},
 	]);
@@ -71,73 +71,73 @@
 <div class="mx-auto max-w-4xl space-y-8 p-8">
 	<section id="org">
 		<ModularForm
-			title={locale.org.form.title}
+			title={locale.orgAdmin.form.title}
 			action="?/editUser"
 			inputs={[
 				{
 					type: 'text',
 					name: 'username',
-					label: locale.org.form.inputs.username.label,
+					label: locale.orgAdmin.form.inputs.username.label,
 					required: true,
-					placeholder: locale.org.form.inputs.username.placeholder,
+					placeholder: locale.orgAdmin.form.inputs.username.placeholder,
 					value: user.username,
 				},
 				{
 					type: 'text',
 					name: 'name',
-					label: locale.org.form.inputs.name.label,
+					label: locale.orgAdmin.form.inputs.name.label,
 					required: true,
-					placeholder: locale.org.form.inputs.name.placeholder,
+					placeholder: locale.orgAdmin.form.inputs.name.placeholder,
 					value: user.name,
 				},
 				{
 					type: 'email',
 					name: 'email',
-					label: locale.org.form.inputs.email.label,
+					label: locale.orgAdmin.form.inputs.email.label,
 					required: true,
-					placeholder: locale.org.form.inputs.email.placeholder,
+					placeholder: locale.orgAdmin.form.inputs.email.placeholder,
 					value: user.email,
 				},
 				{
 					type: 'tel',
 					name: 'phoneNumber',
-					label: locale.org.form.inputs.phoneNumber.label,
+					label: locale.orgAdmin.form.inputs.phoneNumber.label,
 					required: false,
-					placeholder: locale.org.form.inputs.phoneNumber.placeholder,
+					placeholder: locale.orgAdmin.form.inputs.phoneNumber.placeholder,
 					value: user.phoneNumber || undefined,
 				},
 				{
 					type: 'text',
 					name: 'website',
-					label: locale.org.form.inputs.website.label,
+					label: locale.orgAdmin.form.inputs.website.label,
 					required: true,
-					placeholder: locale.org.form.inputs.website.placeholder,
+					placeholder: locale.orgAdmin.form.inputs.website.placeholder,
 					value: user.website,
 				},
 				{
 					type: 'textarea',
 					name: 'description',
-					label: locale.org.form.inputs.description.label,
+					label: locale.orgAdmin.form.inputs.description.label,
 					required: true,
-					placeholder: locale.org.form.inputs.description.placeholder,
+					placeholder: locale.orgAdmin.form.inputs.description.placeholder,
 					value: user.description,
 				},
 			]}
-			submit={[{ text: locale.org.form.submit, primary: true }]}
+			submit={[{ text: locale.orgAdmin.form.submit, primary: true }]}
 			onsubmit={() => () => {}}
 		/>
 	</section>
 
 	<section id="posts">
 		<ModularForm
-			title={{ text: locale.org.posts.create.title, level: 'h2' }}
+			title={{ text: locale.orgAdmin.posts.create.title, level: 'h2' }}
 			bind:inputs={newPostInputs}
-			submit={[{ text: locale.org.posts.create.submit, action: '?/newPost', primary: true }]}
+			submit={[{ text: locale.orgAdmin.posts.create.submit, action: '?/newPost', primary: true }]}
 			onsubmit={createNewPost}
 		/>
 
 		{#each posts as post}
-			<Post {post} {forwardGeocode} {lang} locale={locale.org.posts} />
+			<Post {post} {forwardGeocode} {lang} locale={locale.orgAdmin.posts} />
 		{/each}
 	</section>
 

@@ -1,16 +1,24 @@
-import { getAllOrganizationIds } from '$lib/server/users';
+import { getAllPostIds } from '$lib/server/posts.js';
+import { getAllOrganizationUsernames } from '$lib/server/users';
 
 export const GET = async ({ url, params }) => {
 	const host = `${url.protocol}//${url.host}/${params.lang}`;
-	const organizations = (await getAllOrganizationIds())
+	const organizations = (await getAllOrganizationUsernames())
 		.map(
 			(org) => `\t<url>
-		<loc>${host}/org/${org.id}</loc>
+		<loc>${host}/org/${org.username}</loc>
 		<lastmod>${org.updatedAt.toISOString().split('T')[0]}</lastmod>
 		<priority>0.7</priority>
 	</url>`,
 		)
 		.join('\n');
+	const posts = (await getAllPostIds()).map(
+		(post) => `\t<url>
+		<loc>${host}/post/${post.id}</loc>
+		<lastmod>${post.updatedAt.toISOString().split('T')[0]}</lastmod>
+		<priority>0.7</priority>
+	</url>`,
+	);
 
 	return new Response(
 		`
@@ -34,6 +42,7 @@ export const GET = async ({ url, params }) => {
 		<priority>0.7</priority>
 	</url>
 ${organizations}
+${posts}
 	<url>
 		<loc>${host}/privacy-policy</loc>
 		<lastmod>2025-02-23</lastmod>
