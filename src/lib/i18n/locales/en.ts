@@ -12,6 +12,7 @@ export default {
 		invalid_jwt: 'Invalid session token',
 		reset_token_not_found: { message: 'Reset Password Token not found', cta: 'Go back home' },
 		org_not_found: { message: 'Organization was not found', cta: 'Go Back' },
+		post_not_found: { message: 'Post was not found', cta: 'Go Back' },
 	},
 	gdpr: {
 		banner: {
@@ -141,6 +142,10 @@ export default {
 		posts: {
 			title: 'Our Locations',
 		},
+	},
+	post: {
+		location: 'Location',
+		postedBy: 'Posted by',
 	},
 	login: {
 		form: {

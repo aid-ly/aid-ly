@@ -3,18 +3,12 @@
 	import Map from '$lib/components/Map.svelte';
 	import ModularForm from '$lib/components/ModularForm.svelte';
 	import Post from '$lib/components/org/Post.svelte';
+	import { MapBox } from '$lib/helpers';
 	import type { ActionResult } from '@sveltejs/kit';
 
 	const { data } = $props();
 	const { user, locale, lang } = data;
 	let posts = $state(data.posts);
-
-	const forwardGeocode = async (query: string) => {
-		const url = `https://api.mapbox.com/search/geocode/v6/forward?q=${query}&access_token=${env.PUBLIC_MAPBOX_TOKEN}&lang=${lang}&types=place,address&limit=1`;
-		const res = await (await fetch(url)).json();
-		const coordinates = res.features[0]?.properties?.coordinates;
-		return { lng: coordinates?.longitude, lat: coordinates?.latitude };
-	};
 
 	let newPostInputs = $state([
 		{
@@ -53,10 +47,12 @@
 		},
 	]);
 
+	const mapbox = new MapBox(env.PUBLIC_MAPBOX_TOKEN, lang);
+
 	const createNewPost = async (_: () => void, formData: FormData) => {
-		const coordinates = await forwardGeocode(newPostInputs[1].value!);
-		formData.set('lng', coordinates.lng);
-		formData.set('lat', coordinates.lat);
+		const coordinates = await mapbox.forwardGeocode(newPostInputs[1].value!);
+		formData.set('lng', coordinates.lng.toString());
+		formData.set('lat', coordinates.lat.toString());
 
 		return ({ result, update }: { result: ActionResult; update: () => void }) => {
 			if (result.type === 'success') {
@@ -137,7 +133,7 @@
 		/>
 
 		{#each posts as post}
-			<Post {post} {forwardGeocode} {lang} locale={locale.orgAdmin.posts} />
+			<Post {post} {mapbox} {lang} locale={locale.orgAdmin.posts} />
 		{/each}
 	</section>
 

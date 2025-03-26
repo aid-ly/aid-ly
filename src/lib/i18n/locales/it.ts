@@ -16,6 +16,7 @@ export default {
 			cta: 'Vai alla home',
 		},
 		org_not_found: { message: "L'organizzazione non è stata trovata", cta: 'Torna indietro' },
+		post_not_found: { message: 'Post non trovato', cta: 'Torna indietro' },
 	},
 	gdpr: {
 		banner: {
@@ -145,6 +146,10 @@ export default {
 		posts: {
 			title: 'I nostri Luoghi',
 		},
+	},
+	post: {
+		location: 'Luogo',
+		postedBy: 'Pubblicato da',
 	},
 	login: {
 		form: {
