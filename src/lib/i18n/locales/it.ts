@@ -114,6 +114,38 @@ export default {
 		},
 		submit: 'Invia',
 	},
+	org: {
+		title: 'Collabora con {{orgName}}',
+		subtitle: 'Diventa un volontario collaborando con {{orgName}}.',
+		about: 'Su di noi',
+		contacts: {
+			title: 'Contacts',
+			website: 'Website',
+			email: 'Email',
+			phoneNumber: 'Phone Number',
+		},
+		form: {
+			title: 'Contattaci',
+			inputs: {
+				name: {
+					label: 'Nome completo',
+					placeholder: 'Il tuo nome completo',
+				},
+				subject: {
+					label: 'Oggetto',
+					placeholder: "L'oggetto dell'email",
+				},
+				message: {
+					label: 'Messaggio',
+					placeholder: 'Cosa vuoi dire',
+				},
+			},
+			submit: 'Invia',
+		},
+		posts: {
+			title: 'I nostri Luoghi',
+		},
+	},
 	login: {
 		form: {
 			title: 'LogIn',
@@ -240,7 +272,7 @@ export default {
 			},
 		},
 	},
-	org: {
+	orgAdmin: {
 		form: {
 			title: "Informazioni sull'Organizzazione",
 			inputs: {

@@ -110,6 +110,38 @@ export default {
 		},
 		submit: 'Submit',
 	},
+	org: {
+		title: 'Collaborate with {{orgName}}',
+		subtitle: 'Become a volunteer by collaborating with {{orgName}}.',
+		about: 'About Us',
+		contacts: {
+			title: 'Contacts',
+			website: 'Website',
+			email: 'Email',
+			phoneNumber: 'Phone Number',
+		},
+		form: {
+			title: 'Get in Touch',
+			inputs: {
+				name: {
+					label: 'Full Name',
+					placeholder: 'Your full name',
+				},
+				subject: {
+					label: 'Subject',
+					placeholder: 'The subject',
+				},
+				message: {
+					label: 'Message',
+					placeholder: 'What you want to say',
+				},
+			},
+			submit: 'Send',
+		},
+		posts: {
+			title: 'Our Locations',
+		},
+	},
 	login: {
 		form: {
 			title: 'LogIn',
@@ -235,7 +267,7 @@ export default {
 			},
 		},
 	},
-	org: {
+	orgAdmin: {
 		form: {
 			title: 'Organization Information',
 			inputs: {

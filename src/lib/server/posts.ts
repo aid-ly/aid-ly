@@ -26,6 +26,8 @@ export const getAll = () =>
 		},
 	});
 
+export const getAllPostIds = () => prisma.post.findMany({ select: { id: true, updatedAt: true } });
+
 export const getByUserId = (userId: string) =>
 	prisma.post.findMany({
 		where: { userId },
