@@ -1,13 +1,23 @@
 <script lang="ts">
 	import Map from '$lib/components/Map.svelte';
 	import ModularForm from '$lib/components/ModularForm.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 
 	const { data } = $props();
-	const { org, locale, lang } = data;
+	const { org, locale, lang, page } = data;
 	const posts = org.posts.map((post) => {
 		return { ...post, user: org };
 	});
 </script>
+
+<svelte:head>
+	<SEO
+		title={locale.org.pageTitle.replace('{{orgName}}', org.name)}
+		description={org.description}
+		{lang}
+		{page}
+	/>
+</svelte:head>
 
 <section class="container p-8">
 	<h1 class="text-center text-4xl font-bold text-gray-800">

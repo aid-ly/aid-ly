@@ -1,3 +1,5 @@
+import common from './common';
+
 const formInputs = {
 	username: 'Username',
 	email: 'Email',
@@ -142,6 +144,7 @@ export default {
 		posts: {
 			title: 'Our Locations',
 		},
+		pageTitle: `{{orgName}} on ${common.project.name}`,
 	},
 	post: {
 		location: 'Location',

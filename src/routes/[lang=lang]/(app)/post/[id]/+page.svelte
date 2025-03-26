@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { env } from '$env/dynamic/public';
 	import Map from '$lib/components/Map.svelte';
+	import SEO from '$lib/components/SEO.svelte';
 	import { MapBox } from '$lib/helpers';
 	import { onMount } from 'svelte';
 
 	const { data } = $props();
-	const { post, locale, lang } = data;
+	const { post, locale, lang, page } = data;
 	let place = $state('Loading...');
 
 	const mapbox = new MapBox(env.PUBLIC_MAPBOX_TOKEN, lang);
@@ -22,6 +23,10 @@
 		window.open(`http://maps.apple.com/?q=${place}`);
 	};
 </script>
+
+<svelte:head>
+	<SEO title={`${post.title} - ${post.user.name}`} description={post.description} {lang} {page} />
+</svelte:head>
 
 <section id="post" class="mx-auto space-y-4 rounded-2xl bg-white p-6 shadow-md">
 	<h1 class="text-2xl font-bold text-gray-800">{post.title}</h1>

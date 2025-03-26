@@ -1,10 +1,13 @@
 <script lang="ts">
-	import { AVAILABLE_LANGUAGES, common, FALLBACK, type Language, type Locale } from '$lib/i18n';
+	import { AVAILABLE_LANGUAGES, common, FALLBACK, type Language } from '$lib/i18n';
 
-	type Props = { locale: Locale['seo']; lang: Language; page: keyof Locale['seo'] };
-	const { locale, lang, page }: Props = $props();
-
-	const info = locale[page.split('/')[0] as keyof Locale['seo']];
+	type Props = {
+		title: string;
+		description: string;
+		lang: Language;
+		page: string;
+	};
+	const { title, description, lang, page }: Props = $props();
 
 	const ld = {
 		'@context': 'https://schema.org',
@@ -12,42 +15,40 @@
 		name: common.project.name,
 		url: common.project.url,
 		logo: `${common.project.url}/logo.svg`,
-		description: info.description,
+		description: description,
 	};
 </script>
 
-<svelte:head>
-	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-	{@html `${'<'}script type="application/ld+json">${JSON.stringify(ld)}</script>`}
+<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+{@html `${'<'}script type="application/ld+json">${JSON.stringify(ld)}</script>`}
 
-	<!-- Primary Meta Tags -->
-	<title>{`${common.project.name} | ${info.title}`}</title>
-	<meta name="description" content={info.description} />
-	<meta name="author" content="Sebastiano Racca" />
-	<link rel="canonical" href="{common.project.url}/{lang}/" />
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="author" content={common.project.owner.name} />
+<link rel="canonical" href="{common.project.url}/{lang}/" />
 
-	<!-- Alternate Language Versions -->
-	{#each AVAILABLE_LANGUAGES as language}
-		<link rel="alternate" hreflang={language} href="{common.project.url}/{language}/{page}" />
-	{/each}
-	<link rel="alternate" href="{common.project.url}/{FALLBACK}/{page}" hreflang="x-default" />
+<!-- Alternate Language Versions -->
+{#each AVAILABLE_LANGUAGES as language}
+	<link rel="alternate" hreflang={language} href="{common.project.url}/{language}/{page}" />
+{/each}
+<link rel="alternate" href="{common.project.url}/{FALLBACK}/{page}" hreflang="x-default" />
 
-	<!-- Open Graph / Facebook -->
-	<meta property="og:title" content={`${common.project.name} | ${info.title}`} />
-	<meta property="og:description" content={info.description} />
-	<meta property="og:type" content="website" />
-	<meta property="og:url" content="{common.project.url}/en/" />
-	<meta property="og:site_name" content="aid-ly" />
-	<meta property="og:locale" content={lang} />
-	<!-- TODO: add social preview image -->
-	<!-- <meta property="og:image" content="{common.project.url}/path/to/og-image.jpg" /> -->
-	<!-- <meta name="twitter:card" content="summary_large_image" /> -->
+<!-- Open Graph / Facebook -->
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="{common.project.url}/en/" />
+<meta property="og:site_name" content="aid-ly" />
+<meta property="og:locale" content={lang} />
+<!-- TODO: add social preview image -->
+<!-- <meta property="og:image" content="{common.project.url}/path/to/og-image.jpg" /> -->
+<!-- <meta name="twitter:card" content="summary_large_image" /> -->
 
-	<!-- Twitter -->
-	<meta name="twitter:url" content={common.project.url} />
-	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content={`${common.project.name} | ${info.title}`} />
-	<meta name="twitter:description" content={info.description} />
-	<!-- TODO: add twitter preview image -->
-	<!-- <meta name="twitter:image" content="{common.project.url}/path/to/twitter-image.jpg" /> -->
-</svelte:head>
+<!-- Twitter -->
+<meta name="twitter:url" content={common.project.url} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<!-- TODO: add twitter preview image -->
+<!-- <meta name="twitter:image" content="{common.project.url}/path/to/twitter-image.jpg" /> -->
