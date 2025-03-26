@@ -10,10 +10,17 @@
 		posts: Post[];
 		locale: Locale['map'];
 		lang: Language;
+		requestGeolocation?: boolean;
+		init?: { lng: number; lat: number; zoom: number };
 	};
-	const { posts = $bindable(), locale, lang }: Props = $props();
+	const {
+		posts = $bindable(),
+		requestGeolocation = true,
+		init = { lng: 1.0760175, lat: 47.5907202, zoom: 4.5 },
+		locale,
+		lang,
+	}: Props = $props();
 
-	const init = common.map.init;
 	let map: mapboxgl.Map;
 	let mapContainer: HTMLDivElement;
 
@@ -23,12 +30,12 @@
 			accessToken: env.PUBLIC_MAPBOX_TOKEN,
 			center: [init.lng, init.lat],
 			zoom: init.zoom,
-			customAttribution: 'aid-ly',
+			customAttribution: common.project.name,
 			style: 'mapbox://styles/mapbox/streets-v12',
 			projection: 'equirectangular',
 		});
 
-		if ('geolocation' in navigator) {
+		if (requestGeolocation && 'geolocation' in navigator) {
 			navigator.geolocation.getCurrentPosition((position) => {
 				map.flyTo({
 					center: { lng: position.coords.longitude, lat: position.coords.latitude },

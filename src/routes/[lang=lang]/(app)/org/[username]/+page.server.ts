@@ -1,4 +1,4 @@
-import { getUserByUsername } from '$lib/server/users.js';
+import { getUserByUsername } from '$lib/server/users';
 import { error } from '@sveltejs/kit';
 
 export const prerender = false;

@@ -28,6 +28,9 @@ export const getAll = () =>
 
 export const getAllPostIds = () => prisma.post.findMany({ select: { id: true, updatedAt: true } });
 
+export const getPostById = (id: string) =>
+	prisma.post.findUnique({ where: { id }, include: { user: true } });
+
 export const getByUserId = (userId: string) =>
 	prisma.post.findMany({
 		where: { userId },

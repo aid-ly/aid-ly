@@ -1,19 +1,19 @@
 <script lang="ts">
 	import ModularForm from '$lib/components/ModularForm.svelte';
-	import { env } from '$env/dynamic/public';
 	import type { SafePostWithUser } from '$lib/types/User';
 	import { onMount } from 'svelte';
-	import { getFullLocale, type Language, type Locale } from '$lib/i18n';
+	import { type Language, type Locale } from '$lib/i18n';
 	import type { ActionResult } from '@sveltejs/kit';
+	import type { MapBox } from '$lib/helpers';
 
 	type Props = {
 		post: SafePostWithUser;
-		forwardGeocode: (query: string) => Promise<{ lat: number; lng: number }>;
-		locale: Locale['org']['posts'];
+		mapbox: MapBox;
+		locale: Locale['orgAdmin']['posts'];
 		lang: Language;
 	};
 
-	const { post, forwardGeocode, locale, lang }: Props = $props();
+	const { post, mapbox, locale, lang }: Props = $props();
 
 	let inputs = $state([
 		{
@@ -65,17 +65,8 @@
 
 	let show = $state(true);
 
-	const reverseGeocode = async (lat: number, lng: number) =>
-		(
-			await (
-				await fetch(
-					`https://api.mapbox.com/geocoding/v5/mapbox.places/${lng},${lat}.json?access_token=${env.PUBLIC_MAPBOX_TOKEN}&language=${getFullLocale(lang)}`,
-				)
-			).json()
-		).features[0]?.place_name;
-
 	const onsubmit = async (_: () => void, formData: FormData) => {
-		const coordinates = await forwardGeocode(inputs[1].value!);
+		const coordinates = await mapbox.forwardGeocode(inputs[1].value!);
 		formData.set('lng', coordinates.lng?.toString());
 		formData.set('lat', coordinates.lat?.toString());
 
@@ -95,7 +86,7 @@
 	};
 
 	onMount(async () => {
-		inputs[1].value = await reverseGeocode(post.lat, post.lng);
+		inputs[1].value = await mapbox.reverseGeocode(post.lat, post.lng);
 	});
 </script>
 
