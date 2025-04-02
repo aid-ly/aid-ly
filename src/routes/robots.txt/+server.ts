@@ -1,10 +1,10 @@
-import { AVAILABLE_LANGUAGES } from '$lib/i18n';
+import { AVAILABLE_LANGUAGES, common } from '$lib/i18n';
 
 export const prerender = true;
 
-export const GET = ({ url }) => {
-	const host = `${url.protocol}//${url.host}`;
-	const sitemaps = AVAILABLE_LANGUAGES.map((lang) => `Sitemap: ${host}/${lang}/sitemap.xml`).join(
+export const GET = () => {
+	const base = common.project.url;
+	const sitemaps = AVAILABLE_LANGUAGES.map((lang) => `Sitemap: ${base}/${lang}/sitemap.xml`).join(
 		'\n',
 	);
 
