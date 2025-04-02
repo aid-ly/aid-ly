@@ -83,8 +83,8 @@ export const createOrganization = async (
 		'ORGANIZATION',
 	);
 
-export const login = async (username: string, password: string): Promise<undefined | SafeUser> => {
-	const user = await prisma.user.findFirst({ where: { OR: [{ username }, { email: username }] } });
+export const login = async (email: string, password: string): Promise<undefined | SafeUser> => {
+	const user = await prisma.user.findFirst({ where: { email } });
 
 	if (!user || !bcrypt.compareSync(password, user.password)) {
 		return undefined;

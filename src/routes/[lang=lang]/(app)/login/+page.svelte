@@ -5,14 +5,16 @@
 
 	const { locale } = data;
 	let error = $state(form?.error);
+
+	let inputs = $state([
+		{ type: 'email', name: 'email', label: locale.login.form.email, required: true },
+		{ type: 'password', name: 'password', label: locale.login.form.password, required: true },
+	]);
 </script>
 
 <ModularForm
 	title={locale.login.form.title}
-	inputs={[
-		{ type: 'text', name: 'username', label: locale.login.form.username, required: true },
-		{ type: 'password', name: 'password', label: locale.login.form.password, required: true },
-	]}
+	bind:inputs
 	submit={locale.login.form.submit}
 	bind:error
 />

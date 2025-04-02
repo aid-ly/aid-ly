@@ -10,14 +10,14 @@ export const actions = {
 	default: async ({ request, locals, params, cookies, url }) => {
 		const formData = await request.formData();
 		const loginData = {
-			username: formData.get('username')?.toString(),
+			email: formData.get('email')?.toString(),
 			password: formData.get('password')?.toString(),
 		};
 
 		if (
-			!loginData.username ||
+			!loginData.email ||
 			!loginData.password ||
-			!(locals.user = await login(loginData.username, loginData.password))
+			!(locals.user = await login(loginData.email, loginData.password))
 		) {
 			return fail(401, { error: locals.locale.login.error.invalidCredentials });
 		}
