@@ -1,7 +1,7 @@
 {
 	"name": "aid-ly",
 	"private": true,
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -30,6 +30,7 @@
 		"eslint-plugin-svelte": "^2.46.1",
 		"globals": "^15.14.0",
 		"husky": "^9.1.7",
+		"mapbox-gl": "^3.9.4",
 		"prettier": "^3.4.2",
 		"prettier-plugin-svelte": "^3.3.3",
 		"prettier-plugin-tailwindcss": "^0.6.11",
@@ -52,7 +53,6 @@
 		"bcryptjs": "^3.0.2",
 		"js-cookie": "^3.0.5",
 		"jsonwebtoken": "^9.0.2",
-		"mapbox-gl": "^3.9.4",
 		"marked": "^15.0.7",
 		"nodemailer": "^6.10.0",
 		"svelte-scrollto-element": "^3.1.0",
