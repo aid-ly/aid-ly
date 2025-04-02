@@ -7,6 +7,12 @@
 	};
 
 	const { title, options, onselected, defaultValue = 'default' }: Props = $props();
+	const id = `select_${title
+		.toLowerCase()
+		.trim()
+		.replace(/\s+/g, '-')
+		.replace(/[^a-z0-9-_]/g, '')
+		.replace(/^(\d)/, '_$1')}`;
 	let selected = $state(defaultValue);
 
 	const onchange = (event: Event) => {
@@ -16,7 +22,8 @@
 </script>
 
 <div class="relative w-64">
-	<select bind:value={selected} {onchange}>
+	<label for={id} hidden>{title}</label>
+	<select bind:value={selected} {onchange} {id}>
 		<option value="default" disabled selected hidden id="default">{title}</option>
 
 		{#each options as { group, items }, groupIndx}

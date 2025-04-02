@@ -10,7 +10,6 @@
 
 	let selectedCookies: Cookies | undefined = $state(undefined);
 	let showBanner = $state(false);
-	let customize = $state(false);
 
 	const rejectAll = () => {
 		selectedCookies = { analytics: false, essentials: true };
@@ -49,23 +48,22 @@
 </script>
 
 {#if showBanner}
-	<div class="cookies">
+	<div
+		class="cookies"
+		role="dialog"
+		aria-labelledby="cookie-banner-title"
+		aria-describedby="cookie-banner-description"
+	>
 		<div>
-			<h4>{locale.title}</h4>
+			<h2 id="cookie-banner-title">{locale.title}</h2>
 			<!-- eslint-disable-next-line svelte/no-at-html-tags -->
-			<p>{@html locale.description}</p>
+			<p id="cookie-banner-description">{@html locale.description}</p>
 		</div>
 
 		<div class="actions">
-			<button onclick={rejectAll}>{locale.buttons.rejectAll}</button>
+			<button onclick={rejectAll} id="accept-cookies">{locale.buttons.rejectAll}</button>
 			<button onclick={acceptAll}>{locale.buttons.acceptAll}</button>
 		</div>
-	</div>
-{/if}
-
-{#if customize}
-	<div class="customize">
-		<h4>Customize</h4>
 	</div>
 {/if}
 
@@ -84,7 +82,7 @@
 		padding: 20px;
 		border-radius: 10px;
 
-		h4 {
+		h2 {
 			font-size: larger;
 			font-weight: 500;
 		}
