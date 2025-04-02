@@ -5,7 +5,7 @@ import prisma from './prisma';
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 
-export const hashPassword = (password: string) => bcrypt.hashSync(password);
+export const hashPassword = (password: string) => bcrypt.hashSync(password, 10);
 
 export const getUserById = <T extends boolean>(id: string, includePosts: T = false as T) =>
 	prisma.user.findUnique({
