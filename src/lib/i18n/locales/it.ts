@@ -157,12 +157,12 @@ export default {
 	login: {
 		form: {
 			title: 'LogIn',
-			username: 'Username o email',
+			email: 'Email',
 			password: 'Password',
 			submit: 'Login',
 		},
 		error: {
-			invalidCredentials: 'Username o password non corrette',
+			invalidCredentials: 'Email o password non corrette',
 		},
 
 		resetPassword: {

@@ -153,12 +153,12 @@ export default {
 	login: {
 		form: {
 			title: 'LogIn',
-			username: 'Username or email',
+			email: 'Email',
 			password: 'Password',
 			submit: 'Login',
 		},
 		error: {
-			invalidCredentials: 'Invalid username or password',
+			invalidCredentials: 'Invalid email or password',
 		},
 
 		resetPassword: {
