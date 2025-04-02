@@ -1,12 +1,13 @@
+import { common } from '$lib/i18n';
 import { getAllPostIds } from '$lib/server/posts.js';
 import { getAllOrganizationUsernames } from '$lib/server/users';
 
-export const GET = async ({ url, params }) => {
-	const host = `${url.protocol}//${url.host}/${params.lang}`;
+export const GET = async () => {
+	const base = common.project.url;
 	const organizations = (await getAllOrganizationUsernames())
 		.map(
 			(org) => `\t<url>
-		<loc>${host}/org/${org.username}</loc>
+		<loc>${base}/org/${org.username}</loc>
 		<lastmod>${org.updatedAt.toISOString().split('T')[0]}</lastmod>
 		<priority>0.7</priority>
 	</url>`,
@@ -14,7 +15,7 @@ export const GET = async ({ url, params }) => {
 		.join('\n');
 	const posts = (await getAllPostIds()).map(
 		(post) => `\t<url>
-		<loc>${host}/post/${post.id}</loc>
+		<loc>${base}/post/${post.id}</loc>
 		<lastmod>${post.updatedAt.toISOString().split('T')[0]}</lastmod>
 		<priority>0.7</priority>
 	</url>`,
@@ -32,34 +33,34 @@ export const GET = async ({ url, params }) => {
 	xmlns:video="https://www.google.com/schemas/sitemap-video/1.1"
 >
 	<url>
-		<loc>${host}/</loc>
+		<loc>${base}/</loc>
 		<lastmod>2025-02-23</lastmod>
 		<priority>1</priority>
 	</url>
 	<url>
-		<loc>${host}/contacts</loc>
+		<loc>${base}/contacts</loc>
 		<lastmod>2025-02-23</lastmod>
 		<priority>0.7</priority>
 	</url>
 ${organizations}
 ${posts}
 	<url>
-		<loc>${host}/privacy-policy</loc>
+		<loc>${base}/privacy-policy</loc>
 		<lastmod>2025-02-23</lastmod>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>${host}/terms-of-use</loc>
+		<loc>${base}/terms-of-use</loc>
 		<lastmod>2025-02-23</lastmod>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>${host}/donate</loc>
+		<loc>${base}/donate</loc>
 		<lastmod>2025-02-23</lastmod>
 		<priority>0.6</priority>
 	</url>
 	<url>
-		<loc>${host}/login</loc>
+		<loc>${base}/login</loc>
 		<lastmod>2025-02-23</lastmod>
 		<priority>0.5</priority>
 	</url>
