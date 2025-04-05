@@ -24,11 +24,13 @@
 			| { text: string; action?: string; primary?: boolean; onclick?: (e: Event) => void }[];
 		onsubmit?: (cancel: () => void, formData: FormData) => void;
 		error?: string;
+		classes?: string;
 	};
 
 	const {
 		title,
 		action,
+		classes,
 		method = 'post',
 		inputs = $bindable(),
 		error = $bindable(),
@@ -53,7 +55,7 @@
 	});
 </script>
 
-<form {action} {method} bind:this={form}>
+<form {action} {method} bind:this={form} class={classes}>
 	{#if typeof title === 'string'}
 		<h1 class="title">{title}</h1>
 	{:else}
