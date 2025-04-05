@@ -33,6 +33,7 @@ services:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: aidly
+      POSTGRES_INITDB_ARGS: '--auth-host=scram-sha-256 --auth-local=scram-sha-256'
     networks:
       - backend
     expose:
@@ -46,7 +47,7 @@ services:
       - DB_USER=${POSTGRES_USER}
       - DB_PASSWORD=${POSTGRES_PASSWORD}
       - ADMIN_USERS=${POSTGRES_USER}
-      - AUTH_TYPE=md5
+      - AUTH_TYPE=scram-sha-256
     expose:
       - '5432'
     networks:
