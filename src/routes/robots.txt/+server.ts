@@ -10,8 +10,8 @@ export const GET = () => {
 
 	return new Response(`User-agent: *
 Disallow: /api/
-Disallow: /en/org/
-Disallow: /it/org/
+Disallow: /en/org/$
+Disallow: /it/org/$
 Disallow: /en/admin/
 Disallow: /it/admin/
 
