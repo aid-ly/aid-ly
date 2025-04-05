@@ -31,7 +31,7 @@
 			center: [init.lng, init.lat],
 			zoom: init.zoom,
 			customAttribution: common.project.name,
-			style: 'mapbox://styles/mapbox/streets-v12',
+			style: 'mapbox://styles/mapbox/streets-v12?optimize=true',
 			projection: 'equirectangular',
 		});
 
