@@ -9,6 +9,8 @@ services:
     labels:
       - 'com.centurylinklabs.watchtower.enable=true'
     restart: 'unless-stopped'
+    networks:
+      - backend
 
   migrate:
     image: aidly/aid-ly
@@ -17,6 +19,34 @@ services:
     labels:
       - 'com.centurylinklabs.watchtower.enable=true'
     restart: 'no'
+    networks:
+      - backend
+
+  postgres:
+    image: 'postgres:latest'
+    volumes:
+      - ${PWD}/db-data/:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_USER: username
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: aidly
+    networks:
+      - backend
+    expose:
+      - '5432'
+
+  pgbouncer:
+    image: edoburu/pgbouncer:latest
+    environment:
+      - DB_HOST=postgres
+      - DB_PORT=5432
+      - DB_USER=username
+      - DB_PASSWORD=password
+      - ADMIN_USERS=postgres,admin
+    expose:
+      - '5432'
+    networks:
+      - backend
 
   watchtower:
     image: containrrr/watchtower
@@ -29,3 +59,7 @@ services:
     ports:
       - '3001:8080'
     restart: unless-stopped
+
+networks:
+  backend:
+    driver: bridge

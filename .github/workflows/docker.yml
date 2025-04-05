@@ -37,8 +37,6 @@ jobs:
           tags: |
             aidly/aid-ly:latest
             aidly/aid-ly:${{ steps.package-version.outputs.version }}
-          build-args: |
-            POSTGRES_PRISMA_URL=${{ secrets.POSTGRES_PRISMA_URL }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 
