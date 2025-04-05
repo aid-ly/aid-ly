@@ -4,6 +4,7 @@ services:
     env_file: '.env'
     depends_on:
       - migrate
+      - pgbouncer
     ports:
       - '3000:3000'
     labels:
@@ -21,14 +22,16 @@ services:
     restart: 'no'
     networks:
       - backend
+    depends_on:
+      - postgres
 
   postgres:
     image: 'postgres:latest'
     volumes:
-      - ${PWD}/db-data/:/var/lib/postgresql/data/
+      - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: username
-      POSTGRES_PASSWORD: password
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: aidly
     networks:
       - backend
@@ -40,9 +43,10 @@ services:
     environment:
       - DB_HOST=postgres
       - DB_PORT=5432
-      - DB_USER=username
-      - DB_PASSWORD=password
-      - ADMIN_USERS=postgres,admin
+      - DB_USER=${POSTGRES_USER}
+      - DB_PASSWORD=${POSTGRES_PASSWORD}
+      - ADMIN_USERS=${POSTGRES_USER}
+      - AUTH_TYPE=md5
     expose:
       - '5432'
     networks:
@@ -59,7 +63,12 @@ services:
     ports:
       - '3001:8080'
     restart: unless-stopped
+    depends_on:
+      - app
 
 networks:
   backend:
     driver: bridge
+
+volumes:
+  postgres_data:
