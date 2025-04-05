@@ -44,7 +44,7 @@ export const handle = async ({ event, resolve }) => {
 				throw new Error(`User with ID ${jwt.user_id} not found`);
 			}
 
-			locals.user = sanitizeObject(user, ['password', 'updatedAt']);
+			locals.user = sanitizeObject(user, ['password']);
 		} catch (_err) {
 			cookies.delete(common.cookies.jwt, { path: '/' });
 		}
