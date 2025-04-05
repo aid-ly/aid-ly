@@ -57,4 +57,4 @@ Questi Termini saranno regolati e interpretati in conformità con le leggi dell'
 Se hai domande riguardanti questi Termini, contattaci a:
 
 - **Email**: <legal@aid-ly.org>
-- **Pagina di contatto**: [/it/contatti](/it/contatti)
+- **Pagina di contatto**: [/it/contacts](/it/contacts)
