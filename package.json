@@ -1,11 +1,11 @@
 {
 	"name": "aid-ly",
 	"private": true,
-	"version": "1.0.7",
+	"version": "1.0.8",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "svelte-kit sync && vite build",
 		"preview": "vite preview",
 		"prepare": "husky",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
