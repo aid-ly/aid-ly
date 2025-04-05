@@ -15,7 +15,7 @@ services:
 
   migrate:
     image: aidly/aid-ly
-    command: pnpm prisma migrate deploy
+    command: pnpm prisma migrate deploy && pnpm prisma db seed
     env_file: '.env'
     labels:
       - 'com.centurylinklabs.watchtower.enable=true'
