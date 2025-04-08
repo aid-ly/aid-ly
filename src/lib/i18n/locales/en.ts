@@ -79,8 +79,10 @@ export default {
 			'We believe in building stronger communities through volunteer efforts. Our platform connects volunteers with local nonprofit organizations in need of help. Join us in making a difference!',
 		map: {
 			title: 'Find a volunteering location near you',
-			description:
-				"Find nearby locations where you can contribute your time and skills to meaningful causes. Whether you're interested in supporting local communities, environmental projects, or international initiatives, our map will guide you to organizations that need your help. Start your volunteering journey today!",
+			description: {
+				teaser: "Want to become a volunteer but don't know where to start? Try the aid-ly map!",
+				full: "Find nearby locations where you can contribute your time and skills to meaningful causes. Whether you're interested in supporting local communities, environmental projects, or international initiatives, our map will guide you to organizations that need your help. Start your volunteering journey today!",
+			},
 		},
 		share: {
 			title: 'Share the project',

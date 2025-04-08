@@ -83,8 +83,11 @@ export default {
 			'Crediamo nella costruzione di comunità più forti attraverso il volontariato. La nostra piattaforma mette in contatto i volontari con le organizzazioni non profit locali che hanno bisogno di aiuto. Unisciti a noi per fare la differenza!',
 		map: {
 			title: 'Trova del volontariato vicino a te',
-			description:
-				'Trova i luoghi più vicini dove potete contribuire con il tuo tempo e le tue capacità a cause significative. Se sei interessato a sostenere le comunità locali, i progetti ambientali o le iniziative internazionali, la nostra mappa ti guiderà verso le organizzazioni che hanno bisogno del vostro aiuto. Inizia il tuo viaggio nel volontariato oggi stesso!',
+			description: {
+				teaser:
+					'Vuoi diventare un volontario ma non sai da dove iniziare? Prova con la mappa di aid-ly!',
+				full: 'Trova i luoghi più vicini dove poter contribuire con il tuo tempo e le tue capacità a cause significative. Se sei interessato a sostenere le comunità locali, progetti ambientali o iniziative internazionali, la nostra mappa ti guiderà verso le organizzazioni che hanno bisogno del tuo aiuto. Inizia il tuo viaggio nel volontariato oggi stesso!',
+			},
 		},
 		share: {
 			title: 'Condividi il progetto',

@@ -32,7 +32,8 @@
 <section class="bg-gray-100 p-8" id="map-section">
 	<div>
 		<h2 class="text-3xl font-semibold text-gray-900">{locale.home.map.title}</h2>
-		<p class="mt-2 text-lg text-gray-700">{locale.home.map.description}</p>
+		<b class="block font-medium text-gray-800">{locale.home.map.description.teaser}</b>
+		<p class="mt-2 text-lg text-gray-700">{locale.home.map.description.full}</p>
 
 		<div class="map">
 			<Map bind:posts locale={locale.map} {lang} />
