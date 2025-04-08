@@ -1,14 +1,14 @@
 import { marked } from 'marked';
-import fs from 'fs';
-import path from 'path';
+
+const files = import.meta.glob('$lib/static/md/**/*.md', {
+	query: '?raw',
+	import: 'default',
+}) as Record<string, () => Promise<string>>;
 
 export const load = async ({ params, url }) => {
-	const html = await marked.parse(
-		fs.readFileSync(
-			path.join('server_static', url.pathname.split('/').at(-1)!, `${params.lang}.md`),
-			'utf8',
+	return {
+		html: await marked.parse(
+			await files[`/src/lib/static/md/${url.pathname.split('/').at(-1)!}/${params.lang}.md`](),
 		),
-	);
-
-	return { html };
+	};
 };
