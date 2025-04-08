@@ -41,14 +41,12 @@
 <meta property="og:url" content="{common.project.url}/en/" />
 <meta property="og:site_name" content="aid-ly" />
 <meta property="og:locale" content={lang} />
-<!-- TODO: add social preview image -->
-<!-- <meta property="og:image" content="{common.project.url}/path/to/og-image.jpg" /> -->
-<!-- <meta name="twitter:card" content="summary_large_image" /> -->
+<meta property="og:image" content="{common.project.url}/{lang}/social-preview" />
+<meta name="twitter:card" content="summary_large_image" />
 
 <!-- Twitter -->
 <meta name="twitter:url" content={common.project.url} />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<!-- TODO: add twitter preview image -->
-<!-- <meta name="twitter:image" content="{common.project.url}/path/to/twitter-image.jpg" /> -->
+<meta name="twitter:image" content="{common.project.url}/{lang}/social-preview" />
