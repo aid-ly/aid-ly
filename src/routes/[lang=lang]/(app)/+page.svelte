@@ -48,6 +48,8 @@
 
 <style lang="scss">
 	section {
+		max-width: 100vw;
+
 		&#intro {
 			text-align: center;
 		}
