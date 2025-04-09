@@ -67,6 +67,7 @@ There are several ways to support aid-ly:
 1. ⭐ Star the project on GitHub and share it with your friends.
 2. 📢 Spread the word to nonprofit organizations.
 3. 🛠️ [Contribute to the source code](./CONTRIBUTING.md).
+4. ❤️ [Donate](https://aid-ly.org/donate?utm_source=github&utm_medium=readme)
 
 ## 📜 License
 
