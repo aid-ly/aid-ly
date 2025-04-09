@@ -5,7 +5,6 @@
 	import { animateScroll } from 'svelte-scrollto-element';
 	import { page } from '$app/state';
 	import Dropdown from './Dropdown.svelte';
-	import { env } from '$env/dynamic/public';
 
 	const { locale, lang }: { locale: Locale['header']; lang: Language } = $props();
 
@@ -24,11 +23,7 @@
 	};
 
 	const contributeActions = [
-		[
-			() => scrollTo('#map-section'),
-			() => scrollTo('#share'),
-			() => window.open(env.PUBLIC_DONATE_REDIRECT_URL, '_blank'),
-		],
+		[() => scrollTo('#map-section'), () => scrollTo('#share'), () => goto(`/${lang}/donate`)],
 		[() => goto(`/${lang}/contacts?type=organization`)],
 	];
 </script>
