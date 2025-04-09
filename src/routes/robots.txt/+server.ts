@@ -14,6 +14,10 @@ Disallow: /en/org/$
 Disallow: /it/org/$
 Disallow: /en/admin/
 Disallow: /it/admin/
+Disallow: /en/donate/cancel
+Disallow: /it/donate/cancel
+Disallow: /en/donate/thanks
+Disallow: /it/donate/thanks
 
 Allow: /it/
 Allow: /en/

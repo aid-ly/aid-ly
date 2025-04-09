@@ -124,6 +124,23 @@ export default {
 			title: 'Make a donation with PayPal',
 			alt: 'Donate with PayPal',
 		},
+		thanks: {
+			title: 'Thank you!',
+			description:
+				'Your generous contribution helps keep Aid-ly running. We are incredibly grateful for your support.',
+			motto:
+				'Together, we are making it easier for volunteers and non-profits to connect and create positive change.',
+		},
+		cancel: {
+			title: 'Donation Cancelled',
+			contribute: {
+				description: 'There are still many ways you can support Aid-ly and help us grow:',
+				spread: 'Spread the word.',
+				star: 'Star the project on GitHub.',
+				code: 'Contribute to the source code.',
+				thanks: 'Thank you for your time and interest in Aid-ly.',
+			},
+		},
 	},
 	org: {
 		title: 'Collaborate with {{orgName}}',

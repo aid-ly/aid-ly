@@ -2,6 +2,7 @@ export default {
 	project: {
 		name: 'aid-ly',
 		url: 'https://aid-ly.org',
+		githubUrl: 'https://github.com/aid-ly/aid-ly',
 		owner: {
 			name: 'Sebastiano Racca',
 			website: 'https://racca.me',

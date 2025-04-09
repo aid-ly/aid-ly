@@ -129,6 +129,21 @@ export default {
 			title: 'Fai una donazione con PayPal',
 			alt: 'Dona con PayPal',
 		},
+		thanks: {
+			title: 'Grazie!',
+			description: 'Il tuo contributo generoso è molto prezioso per Aid-ly.',
+			motto: 'Insieme connettiamo i volontari e le non-profit.',
+		},
+		cancel: {
+			title: 'Donazione Annullata',
+			contribute: {
+				description: 'Ci sono altri modi con cui puoi contribuire a Aid-ly:',
+				spread: 'Spargi la voce.',
+				star: 'Metti una stella su GitHub.',
+				code: 'Contribuisci al codice sorgente.',
+				thanks: 'Grazie per il tuo tempo e per il tuo interesse ad Aid-ly.',
+			},
+		},
 	},
 	org: {
 		title: 'Collabora con {{orgName}}',
