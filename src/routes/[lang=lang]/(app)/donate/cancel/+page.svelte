@@ -15,9 +15,19 @@
 	<p class="text-md mb-6 text-left text-gray-600">{locale.contribute.description}</p>
 	<ul class="mb-6 list-inside list-disc space-y-2 text-left text-gray-700">
 		<li><a href="/{lang}/#share">{locale.contribute.spread}</a></li>
-		<li><a href={common.project.githubUrl}>{locale.contribute.star}</a></li>
 		<li>
-			<a href="{common.project.githubUrl}/blob/main/CONTRIBUTING.md">{locale.contribute.code}</a>
+			<a href={common.project.githubUrl} target="_blank" rel="noopener noreferrer">
+				{locale.contribute.star}
+			</a>
+		</li>
+		<li>
+			<a
+				href="{common.project.githubUrl}/blob/main/CONTRIBUTING.md"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				{locale.contribute.code}
+			</a>
 		</li>
 	</ul>
 	<p class="text-sm text-gray-600">{locale.contribute.thanks}</p>
