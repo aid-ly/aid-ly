@@ -42,6 +42,11 @@ export const GET = async () => {
 		<lastmod>2025-02-23</lastmod>
 		<priority>0.7</priority>
 	</url>
+	<url>
+		<loc>${base}/donate</loc>
+		<lastmod>2025-04-09</lastmod>
+		<priority>0.7</priority>
+	</url>
 ${organizations}
 ${posts}
 	<url>
