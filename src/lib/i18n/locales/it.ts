@@ -120,6 +120,16 @@ export default {
 		},
 		submit: 'Invia',
 	},
+	donate: {
+		title: 'Supporta Aid-ly',
+		description:
+			"Le donazioni ci aiutano a coprire le spese essenziali come la registrazione del dominio, l'hosting del server, la manutenzione e gli sviluppi futuri.",
+		cta: 'Ogni contributo fa la differenza, anche il tuo!',
+		paypalButton: {
+			title: 'Fai una donazione con PayPal',
+			alt: 'Dona con PayPal',
+		},
+	},
 	org: {
 		title: 'Collabora con {{orgName}}',
 		subtitle: 'Diventa un volontario collaborando con {{orgName}}.',

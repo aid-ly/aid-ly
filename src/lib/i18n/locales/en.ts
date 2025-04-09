@@ -115,6 +115,16 @@ export default {
 		},
 		submit: 'Submit',
 	},
+	donate: {
+		title: 'Support Aid-ly',
+		description:
+			'Your donations help us cover essential expenses such as domain registration, server hosting, maintenance and future developments.',
+		cta: 'Every contribution makes a difference, even yours!',
+		paypalButton: {
+			title: 'Make a donation with PayPal',
+			alt: 'Donate with PayPal',
+		},
+	},
 	org: {
 		title: 'Collaborate with {{orgName}}',
 		subtitle: 'Become a volunteer by collaborating with {{orgName}}.',

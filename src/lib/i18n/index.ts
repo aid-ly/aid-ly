@@ -11,10 +11,10 @@ const AVAILABLE_LANGUAGES: Language[] = Object.keys(locales) as (keyof typeof lo
 
 const FALLBACK: Language = 'it';
 
-const getFullLocale = (lang: Language) => {
+const getFullLocale = (lang: Language, separator = '-') => {
 	return {
-		it: 'it-IT',
-		en: 'en-US',
+		it: `it${separator}IT`,
+		en: `en${separator}US`,
 	}[lang];
 };
 
