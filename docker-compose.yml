@@ -57,7 +57,7 @@ services:
     image: containrrr/watchtower
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    command: --http-api-update --label-enable
+    command: --http-api-update --label-enable --cleanup
     env_file: '.env'
     labels:
       - 'com.centurylinklabs.watchtower.enable=false'
