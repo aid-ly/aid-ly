@@ -22,10 +22,7 @@
 </script>
 
 <div class="relative w-64">
-	<label for={id} hidden>{title}</label>
-	<select bind:value={selected} {onchange} {id}>
-		<option value="default" disabled selected hidden id="default">{title}</option>
-
+	<select bind:value={selected} {onchange} {id} aria-labelledby="{id}_label">
 		{#each options as { group, items }, groupIndx}
 			<optgroup label={group}>
 				{#each items as item, itemIndx}
@@ -34,6 +31,13 @@
 			</optgroup>
 		{/each}
 	</select>
+	<label
+		id="{id}_label"
+		class="pointer-events-none absolute top-1/2 left-0 -translate-y-1/2 transform"
+		for={id}
+	>
+		{title}
+	</label>
 </div>
 
 <style lang="scss">
@@ -42,9 +46,5 @@
 		background-color: inherit;
 		cursor: pointer;
 		padding-bottom: 5px;
-
-		option#default {
-			color: blue;
-		}
 	}
 </style>
