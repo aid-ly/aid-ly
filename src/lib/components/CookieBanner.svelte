@@ -77,7 +77,7 @@
 		flex-direction: column;
 		gap: 20px;
 		max-width: 500px;
-		background-color: #fd331c;
+		background-color: #ee0000;
 		color: white;
 		padding: 20px;
 		border-radius: 10px;
