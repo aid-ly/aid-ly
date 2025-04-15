@@ -36,12 +36,15 @@
 		});
 
 		if (requestGeolocation && 'geolocation' in navigator) {
-			navigator.geolocation.getCurrentPosition((position) => {
-				map.flyTo({
-					center: { lng: position.coords.longitude, lat: position.coords.latitude },
-					zoom: 11,
-				});
-			}, console.error);
+			navigator.geolocation.getCurrentPosition(
+				(position) => {
+					map.flyTo({
+						center: { lng: position.coords.longitude, lat: position.coords.latitude },
+						zoom: 11,
+					});
+				},
+				({ message }) => console.log('geolocation error:', message),
+			);
 		}
 
 		$effect(() => {
