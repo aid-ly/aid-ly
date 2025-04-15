@@ -1,3 +1,5 @@
+import { createHook } from '@nosecone/sveltekit';
+import { sequence } from '@sveltejs/kit/hooks';
 import parser from 'accept-language-parser';
 import { type Language, AVAILABLE_LANGUAGES, common, FALLBACK, locales } from '$lib/i18n';
 import { verify } from '$lib/server/jwt';
@@ -6,7 +8,7 @@ import { sanitizeObject } from '$lib/helpers';
 
 const NO_LANG_ROUTES = ['/robots.txt', '/api'];
 
-export const handle = async ({ event, resolve }) => {
+export const handle = sequence(createHook(), async ({ event, resolve }) => {
 	const { url, request, locals, cookies } = event;
 	let [, lang] = url.pathname.split('/');
 
@@ -53,4 +55,4 @@ export const handle = async ({ event, resolve }) => {
 	return resolve(event, {
 		transformPageChunk: ({ html }) => html.replaceAll('%lang%', lang),
 	});
-};
+});
