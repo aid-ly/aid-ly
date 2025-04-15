@@ -351,6 +351,7 @@ export default {
 					placeholder: 'The location on the map',
 					loading: 'Loading...',
 				},
+				expireDate: 'Post expiration',
 				description: {
 					label: 'Description',
 					placeholder: 'Post description',

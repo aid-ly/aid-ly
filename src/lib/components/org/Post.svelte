@@ -47,6 +47,13 @@
 			value: post.lat.toString(),
 		},
 		{
+			type: 'datetime-local',
+			label: locale.inputs.expireDate,
+			name: 'expireDate',
+			required: false,
+			value: post.expireDate?.toLocaleString('sv-SE'),
+		},
+		{
 			type: 'textarea',
 			label: locale.inputs.description.label,
 			name: 'description',
@@ -62,13 +69,15 @@
 			value: post.id,
 		},
 	]);
-
 	let show = $state(true);
 
 	const onsubmit = async (_: () => void, formData: FormData) => {
 		const coordinates = await mapbox.forwardGeocode(inputs[1].value!);
 		formData.set('lng', coordinates.lng?.toString());
 		formData.set('lat', coordinates.lat?.toString());
+		if (formData.get('expireDate')) {
+			formData.set('expireDate', new Date(formData.get('expireDate')!.toString()).toISOString());
+		}
 
 		return ({ result }: { result: ActionResult }) => {
 			if (result.type === 'success') {
@@ -98,6 +107,7 @@
 			{ text: 'Save Post', action: '?/editPost', primary: true },
 			{ text: 'Delete Post', action: '?/deletePost', onclick: confirmDelete },
 		]}
+		disabled={true}
 		{onsubmit}
 	/>
 {/if}

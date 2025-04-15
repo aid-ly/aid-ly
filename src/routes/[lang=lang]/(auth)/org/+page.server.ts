@@ -10,23 +10,33 @@ export const load = async ({ locals }) => {
 	};
 };
 
-const validateData = <T extends Record<string, string | number>>(data: T) => {
+const validateData = <T extends Record<string, string | number | Date | null>>(data: T) => {
 	Object.entries(data).forEach(([key, value]) => {
-		if (value === null || value === undefined) {
+		if (key !== 'expireDate' && (value === null || value === undefined)) {
 			throw new Error(`${key} must not be null or undefined`);
 		}
+
+		if (value instanceof Date) {
+			if (isNaN(value.getTime())) {
+				throw new Error(`${key} must be a valid Date`);
+			}
+		}
+
 		if (typeof value === 'number' && isNaN(value)) {
 			throw new Error(`${key} must be a valid number`);
 		}
 	});
 
-	return data as { [K in keyof T]: NonNullable<T[K]> };
+	return data;
 };
 const getPostFormData = (formData: FormData, addID = false) =>
 	validateData({
 		title: formData.get('title')?.toString() || '',
 		lng: parseFloat(formData.get('lng')?.toString() || '0'),
 		lat: parseFloat(formData.get('lat')?.toString() || '0'),
+		expireDate: formData.get('expireDate')
+			? new Date(`${formData.get('expireDate')!.toString()}`)
+			: null,
 		description: formData.get('description')?.toString() || '',
 		...(addID ? { id: formData.get('id')?.toString() || '' } : {}),
 	});

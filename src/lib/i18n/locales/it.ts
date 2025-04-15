@@ -355,6 +355,7 @@ export default {
 					placeholder: 'Il luogo sulla mappa',
 					loading: 'Caricando...',
 				},
+				expireDate: 'Scandenza post',
 				description: {
 					label: 'Descrizione',
 					placeholder: 'La descrizione del post',

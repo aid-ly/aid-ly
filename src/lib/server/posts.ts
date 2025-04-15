@@ -17,8 +17,15 @@ const userSelect = {
 export const create = (data: Prisma.PostCreateInput) =>
 	prisma.post.create({ data, include: { user: { select: userSelect } } });
 
-export const getAll = () =>
+export const getAll = (includeExpired: boolean = false) =>
 	prisma.post.findMany({
+		where: includeExpired
+			? {}
+			: {
+					expireDate: {
+						gte: new Date(),
+					},
+				},
 		include: {
 			user: {
 				select: userSelect,

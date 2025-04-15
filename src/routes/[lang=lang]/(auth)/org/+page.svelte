@@ -39,6 +39,13 @@
 			required: true,
 		},
 		{
+			type: 'datetime-local',
+			label: locale.orgAdmin.posts.inputs.expireDate,
+			name: 'expireDate',
+			required: false,
+			min: new Date().toISOString().slice(0, 16),
+		},
+		{
 			type: 'textarea',
 			label: locale.orgAdmin.posts.inputs.description.label,
 			name: 'description',
@@ -53,6 +60,13 @@
 		const coordinates = await mapbox.forwardGeocode(newPostInputs[1].value!);
 		formData.set('lng', coordinates.lng.toString());
 		formData.set('lat', coordinates.lat.toString());
+		if (formData.get('expireDate')) {
+			console.log(
+				formData.get('expireDate'),
+				new Date(formData.get('expireDate')!.toString()).toISOString(),
+			);
+			formData.set('expireDate', new Date(formData.get('expireDate')!.toString()).toISOString());
+		}
 
 		return ({ result, update }: { result: ActionResult; update: () => void }) => {
 			if (result.type === 'success') {

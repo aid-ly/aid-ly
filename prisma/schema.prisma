@@ -30,11 +30,12 @@ model User {
 }
 
 model Post {
-  id          String @id @default(nanoid())
+  id          String    @id @default(nanoid())
   title       String
   description String
   lng         Float
   lat         Float
+  expireDate  DateTime?
 
   userId String
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)

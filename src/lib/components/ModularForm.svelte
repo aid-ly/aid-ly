@@ -25,6 +25,7 @@
 		onsubmit?: (cancel: () => void, formData: FormData) => void;
 		error?: string;
 		classes?: string;
+		disabled?: boolean;
 	};
 
 	const {
@@ -36,6 +37,7 @@
 		error = $bindable(),
 		submit,
 		onsubmit,
+		disabled = false,
 	}: Props = $props();
 
 	let form: HTMLFormElement;
@@ -55,7 +57,7 @@
 	});
 </script>
 
-<form {action} {method} bind:this={form} class={classes}>
+<form {action} {method} bind:this={form} class:disabled class={classes}>
 	{#if typeof title === 'string'}
 		<h1 class="title">{title}</h1>
 	{:else}
@@ -69,7 +71,12 @@
 	{/if}
 
 	{#each inputs as input}
-		<label for={input.name}>{input.label}</label>
+		<label for={input.name}>
+			{input.label}
+			{#if input.label && input.required}
+				<span class="text-red-500">*</span>
+			{/if}
+		</label>
 		{#if input.type === 'textarea'}
 			<textarea {...input} id={input.name} bind:value={input.value} rows="4" class="w-[100%]"
 			></textarea>
@@ -109,6 +116,12 @@
 		border-radius: 0.75rem;
 		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 		max-width: 100%;
+
+		&.disabled {
+			pointer-events: none;
+			opacity: 0.7;
+			filter: grayscale(100%);
+		}
 
 		.title {
 			font-size: 1.5rem;
