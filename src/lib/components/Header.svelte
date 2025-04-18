@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { Bars } from 'svelte-free-icons-solid';
-	import { AVAILABLE_LANGUAGES, type Language, type Locale } from '$lib/i18n';
+	import { AVAILABLE_LANGUAGES, icons, type Language, type Locale } from '$lib/i18n';
 	import { goto } from '$app/navigation';
 	import { animateScroll } from 'svelte-scrollto-element';
 	import { page } from '$app/state';
 	import Dropdown from './Dropdown.svelte';
 
-	const { locale, lang }: { locale: Locale['header']; lang: Language } = $props();
+	type Props = { locale: Locale['header']; lang: Language; currPage: string };
+	const { locale, lang, currPage }: Props = $props();
 
 	let showMenu = $state(false);
 
@@ -26,19 +27,46 @@
 		[() => scrollTo('#map-section'), () => scrollTo('#share'), () => goto(`/${lang}/donate`)],
 		[() => goto(`/${lang}/contacts?type=organization`)],
 	];
+
+	const changeLanguage = (e: Event & { target: { value: string } }) => {
+		window.location.href = `/${e.target.value}/${currPage}`;
+	};
 </script>
 
 <header>
 	<nav class="container mx-auto px-6 py-8 md:flex md:items-center md:justify-between">
-		<div class="flex items-center justify-between">
+		<div class="flex w-[100%] items-center justify-between">
 			<a class="text-xl font-bold no-underline hover:text-red-400 md:text-2xl" href="/">
 				<img src="/logo.svg" alt={locale.logo.alt} width="70" height="70" />
 				<span>aid-ly</span>
 			</a>
-			<div class="flex md:hidden">
-				<button type="button" onclick={toggleNavbar} aria-label="burger">
-					<Bars color="black" size="20px" />
-				</button>
+
+			<div class="flex items-center gap-4">
+				<div class="mr-1 md:mr-10">
+					<label for="language">
+						<span class="sr-only">{locale.language}</span>
+					</label>
+					<select
+						id="language"
+						name="language"
+						class="px-3 text-sm"
+						onchange={(e) => changeLanguage(e as unknown as Event & { target: { value: string } })}
+						aria-label={locale.language}
+					>
+						{#each AVAILABLE_LANGUAGES as language}
+							<option value={language} selected={language === lang} disabled={language === lang}>
+								{icons[language]}
+								{language.toUpperCase()}
+							</option>
+						{/each}
+					</select>
+				</div>
+
+				<div class="md:hidden">
+					<button type="button" onclick={toggleNavbar} aria-label="burger">
+						<Bars color="black" size="20px" />
+					</button>
+				</div>
 			</div>
 		</div>
 

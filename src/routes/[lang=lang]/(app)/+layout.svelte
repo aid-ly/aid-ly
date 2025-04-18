@@ -3,15 +3,16 @@
 	import Header from '$lib/components/Header.svelte';
 
 	const { children, data } = $props();
+	const { locale, lang, version, page } = data;
 </script>
 
-<Header locale={data.locale.header} lang={data.lang} />
+<Header locale={locale.header} {lang} currPage={page} />
 
 <main>
 	{@render children()}
 </main>
 
-<Footer locale={data.locale.footer} version={data.version} />
+<Footer locale={locale.footer} {version} />
 
 <style lang="scss">
 	main {

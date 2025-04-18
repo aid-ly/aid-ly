@@ -221,6 +221,7 @@ export default {
 				],
 			},
 		},
+		language: 'Seleziona Lingua',
 	},
 	footer: {
 		resources: {

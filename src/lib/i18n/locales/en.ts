@@ -218,6 +218,7 @@ export default {
 				],
 			},
 		},
+		language: 'Select Language',
 	},
 	footer: {
 		resources: {
