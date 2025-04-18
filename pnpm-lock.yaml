@@ -12,9 +12,6 @@ importers:
 
   .:
     dependencies:
-      '@nosecone/sveltekit':
-        specifier: 1.0.0-beta.5
-        version: 1.0.0-beta.5(@sveltejs/kit@2.20.7(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.9)(vite@6.2.6(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.84.0)(tsx@4.19.3)))(svelte@5.19.9)(vite@6.2.6(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.84.0)(tsx@4.19.3)))
       '@prisma/client':
         specifier: ^6.5.0
         version: 6.5.0(prisma@6.5.0(typescript@5.7.3))(typescript@5.7.3)
@@ -527,12 +524,6 @@ packages:
   '@nodelib/fs.walk@1.2.8':
     resolution: {integrity: sha512-oGB+UxlgWcgQkgwo8GcEGwemoTFt3FIO9ababBmaGwXIoBKZ+GTy0pP185beGg7Llih/NSHSV2XAs1lnznocSg==}
     engines: {node: '>= 8'}
-
-  '@nosecone/sveltekit@1.0.0-beta.5':
-    resolution: {integrity: sha512-F9DUWu2PeHO6jiuN/t1mypj6LZMSayAgJ6WUmMDDqr2ze+4uNPRUj1mR+p/3C1oVIP61VBvttnv+5iuuM4yaqg==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@sveltejs/kit': '>=2'
 
   '@parcel/watcher-android-arm64@2.5.1':
     resolution: {integrity: sha512-KF8+j9nNbUN8vzOFDpRMsaKBHZ/mcjEjMToVMJOhTozkDonQFFrRcfdLWn6yWKCmJKmdVxSgHiYvTCef4/qcBA==}
@@ -1617,10 +1608,6 @@ packages:
     resolution: {integrity: sha512-SQ3wZCExjeSatLE/HBaXS5vqUOQk6GtBdIIKxiFdmm01mOQZX/POJkO3SUX1wDiYcwUOJwT23scFSC9fY2H8IA==}
     engines: {node: '>=6.0.0'}
 
-  nosecone@1.0.0-beta.5:
-    resolution: {integrity: sha512-qqrdBNdRxQO2VzyEfx9ggJlJsWuktcaYmNk+EK3VtlHNOTprK97eHVtOYJTbup+IIX5C0wtPGoltjX9ZPMTtiA==}
-    engines: {node: '>=18'}
-
   optionator@0.9.4:
     resolution: {integrity: sha512-6IpQ7mKUxRcZNLIObR0hz7lxsapSSIYNZJwXPGeF0mTVqGKFIXj1DQcMoT22S3ROcLyY/rz0PWaWZ9ayWmad9g==}
     engines: {node: '>= 0.8.0'}
@@ -2362,11 +2349,6 @@ snapshots:
     dependencies:
       '@nodelib/fs.scandir': 2.1.5
       fastq: 1.19.0
-
-  '@nosecone/sveltekit@1.0.0-beta.5(@sveltejs/kit@2.20.7(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.9)(vite@6.2.6(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.84.0)(tsx@4.19.3)))(svelte@5.19.9)(vite@6.2.6(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.84.0)(tsx@4.19.3)))':
-    dependencies:
-      '@sveltejs/kit': 2.20.7(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.19.9)(vite@6.2.6(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.84.0)(tsx@4.19.3)))(svelte@5.19.9)(vite@6.2.6(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(sass@1.84.0)(tsx@4.19.3))
-      nosecone: 1.0.0-beta.5
 
   '@parcel/watcher-android-arm64@2.5.1':
     optional: true
@@ -3416,8 +3398,6 @@ snapshots:
     optional: true
 
   nodemailer@6.10.0: {}
-
-  nosecone@1.0.0-beta.5: {}
 
   optionator@0.9.4:
     dependencies:
