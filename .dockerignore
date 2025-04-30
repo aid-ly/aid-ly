@@ -23,3 +23,9 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
 .github
+eslint.config.js
+Dockerfile
+docker-compose.yml
+README.md
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
