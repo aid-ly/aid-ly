@@ -23,7 +23,7 @@ export default {
 				"We use cookies to offer a better browsing experience and analyze site traffic. By clicking \"Accept All\", you consent to our <a href='/en/privacy-policy' class='underline'>privacy policy</a> and <a href='/en/terms-of-use' class='underline'>terms and conditions</a>.",
 			buttons: {
 				acceptAll: 'Accept All',
-				rejectAll: 'Reject All',
+				rejectAll: 'Necessary Only',
 			},
 		},
 	},

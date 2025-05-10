@@ -27,7 +27,7 @@ export default {
 				"Usiamo i cookie per offrire una migliore esperienza di navigazione e analizzare il traffico del sito. Facendo clic su \"Accetta Tutti\", si accetta la nostra <a href='/en/privacy-policy' class='underline'>politica sulla privacy</a> e i nostri <a href='/en/terms-of-use' class='underline'>termini e condizioni</a>.",
 			buttons: {
 				acceptAll: 'Accetta Tutti',
-				rejectAll: 'Rifiuta Tutti',
+				rejectAll: 'Solo Necessari',
 			},
 		},
 	},
