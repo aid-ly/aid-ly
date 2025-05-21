@@ -150,10 +150,10 @@ export default {
 		subtitle: 'Diventa un volontario collaborando con {{orgName}}.',
 		about: 'Su di noi',
 		contacts: {
-			title: 'Contacts',
-			website: 'Website',
+			title: 'Contatti',
+			website: 'Sito web',
 			email: 'Email',
-			phoneNumber: 'Phone Number',
+			phoneNumber: 'Telefono',
 		},
 		form: {
 			title: 'Contattaci',
