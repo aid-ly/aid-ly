@@ -13,7 +13,7 @@
 		lang: Language;
 	};
 
-	const { post, mapbox, locale, lang }: Props = $props();
+	let { post, mapbox, locale, lang }: Props = $props();
 
 	let inputs = $state([
 		{
@@ -70,6 +70,7 @@
 		},
 	]);
 	let show = $state(true);
+	let disabled: boolean = $derived(Boolean(post.expireDate) && post.expireDate! <= new Date());
 
 	const onsubmit = async (_: () => void, formData: FormData) => {
 		const coordinates = await mapbox.forwardGeocode(inputs[1].value!);
@@ -83,6 +84,8 @@
 			if (result.type === 'success') {
 				if (!result.data?.post) {
 					show = false;
+				} else {
+					post = result.data.post;
 				}
 			}
 		};
@@ -107,7 +110,7 @@
 			{ text: 'Save Post', action: '?/editPost', primary: true },
 			{ text: 'Delete Post', action: '?/deletePost', onclick: confirmDelete },
 		]}
-		disabled={true}
+		{disabled}
 		{onsubmit}
 	/>
 {/if}
