@@ -22,9 +22,14 @@ export const getAll = (includeExpired: boolean = false) =>
 		where: includeExpired
 			? {}
 			: {
-					expireDate: {
-						gte: new Date(),
-					},
+					OR: [
+						{ expireDate: null },
+						{
+							expireDate: {
+								gte: new Date(),
+							},
+						},
+					],
 				},
 		include: {
 			user: {
