@@ -61,10 +61,6 @@
 		formData.set('lng', coordinates.lng.toString());
 		formData.set('lat', coordinates.lat.toString());
 		if (formData.get('expireDate')) {
-			console.log(
-				formData.get('expireDate'),
-				new Date(formData.get('expireDate')!.toString()).toISOString(),
-			);
 			formData.set('expireDate', new Date(formData.get('expireDate')!.toString()).toISOString());
 		}
 
