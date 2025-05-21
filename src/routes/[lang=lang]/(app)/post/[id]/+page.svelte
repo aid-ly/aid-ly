@@ -56,6 +56,7 @@
 <style lang="scss">
 	#post {
 		width: clap(100px, 50vw, 400px);
+		max-width: 80%;
 		margin: 0 20px;
 	}
 
