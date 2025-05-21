@@ -63,7 +63,7 @@
 							closeOnMove: true,
 						}).setHTML(`
             <h3 class="text-lg font-semibold text-gray-800">${post.title}</h3>
-            <p class="text-sm text-gray-600 mt-2">${post.description}</p>
+            <p class="text-sm text-gray-600 mt-2">${post.description.length > 32 ? post.description.slice(0, 128) + '...' : post.description}</p>
 
             <div class="mt-4 border-t pt-3">
               <p class="text-xs text-gray-500">
