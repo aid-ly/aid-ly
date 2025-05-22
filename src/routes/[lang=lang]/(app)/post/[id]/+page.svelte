@@ -7,7 +7,7 @@
 
 	const { data } = $props();
 	const { post, locale, lang, page } = data;
-	let place = $state('Loading...');
+	let place = $state(locale.orgAdmin.posts.inputs.place.loading);
 
 	const mapbox = new MapBox(env.PUBLIC_MAPBOX_TOKEN, lang);
 
