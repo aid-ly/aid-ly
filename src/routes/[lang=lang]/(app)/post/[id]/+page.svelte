@@ -18,9 +18,15 @@
 	let geoUrl = $derived(`geo:${post.lat},${post.lng}?q=${encodeURIComponent(place)}`);
 
 	const handleGeoUrl = (e: Event) => {
-		e.preventDefault();
-
-		window.open(`http://maps.apple.com/?q=${place}`);
+		if (
+			!/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
+				navigator.userAgent,
+			) &&
+			place
+		) {
+			e.preventDefault();
+			window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`);
+		}
 	};
 </script>
 
