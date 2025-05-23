@@ -22,6 +22,7 @@ const converter = new showdown.Converter({
 	openLinksInNewWindow: true,
 	backslashEscapesHTMLTags: true,
 	emoji: true,
+	disableForced4SpacesIndentedSublists: true,
 	extensions: [...bindings],
 });
 

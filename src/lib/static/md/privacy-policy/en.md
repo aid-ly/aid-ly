@@ -1,6 +1,8 @@
-# Privacy policy
 
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD007 -->
+# Privacy policy
+
 _Last updated: 23 Feb 2025_
 
 Aid-ly.org is a non-profit, open source website designed to connect communities with organizations.
@@ -15,21 +17,21 @@ To provide our services we need to collect some information which are detailed h
    Only non-profit organizations are permitted to create accounts on our platform. The information collected during account creation includes:
 
   - **Organizational Details**:
-    - username
-    - hashed password
-    - name
-    - description
-    - email
-    - phone number (_optional_)
-    - website
-    - creation time
-    - last time it was updated
+     - username
+     - hashed password
+     - name
+     - description
+     - email
+     - phone number (_optional_)
+     - website
+     - creation time
+     - last time it was updated
   - **Public Posts**:
-    - title
-    - description
-    - location data (longitude and latitude)
-    - creation time
-    - last time it was updated
+     - title
+     - description
+     - location data (longitude and latitude)
+     - creation time
+     - last time it was updated
 - **Analytics**:
    If you consent to cookies, we use Simple Analytics to collect and analyze data on how users interact with our site.
    This helps us improve our services without compromising your privacy.

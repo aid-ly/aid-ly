@@ -1,7 +1,7 @@
 {
 	"name": "aid-ly",
 	"private": true,
-	"version": "1.5.0",
+	"version": "1.5.1",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -56,7 +56,6 @@
 		"bcryptjs": "^3.0.2",
 		"js-cookie": "^3.0.5",
 		"jsonwebtoken": "^9.0.2",
-		"marked": "^15.0.7",
 		"nodemailer": "^6.10.0",
 		"sanitize-html": "^2.17.0",
 		"showdown": "^2.1.0",

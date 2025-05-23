@@ -1,4 +1,4 @@
-import { marked } from 'marked';
+import md2html from '$lib/md2html';
 
 const files = import.meta.glob('$lib/static/md/**/*.md', {
 	query: '?raw',
@@ -7,8 +7,9 @@ const files = import.meta.glob('$lib/static/md/**/*.md', {
 
 export const load = async ({ params, url }) => {
 	return {
-		html: await marked.parse(
+		html: md2html(
 			await files[`/src/lib/static/md/${url.pathname.split('/').at(-1)!}/${params.lang}.md`](),
+			1,
 		),
 	};
 };

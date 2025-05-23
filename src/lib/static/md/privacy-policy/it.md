@@ -1,6 +1,8 @@
-# Informativa sulla Privacy
 
 <!-- markdownlint-disable MD036 -->
+<!-- markdownlint-disable MD007 -->
+# Informativa sulla Privacy
+
 _Ultimo aggiornamento: 23 Feb 2025_
 
 Aid-ly.org è un sito web open source e senza scopo di lucro progettato per mettere in contatto le comunità con le organizzazioni.
@@ -12,24 +14,23 @@ Ci impegniamo a proteggere la tua privacy e a gestire i tuoi dati in modo respon
 Per fornire i nostri servizi, dobbiamo raccogliere alcune informazioni, dettagliate di seguito.
 
 - **Informazioni sull'Account**:
-   Solo le organizzazioni non profit possono creare account sulla nostra piattaforma. Le informazioni raccolte durante la creazione dell'account includono:
-
+  Solo le organizzazioni non profit possono creare account sulla nostra piattaforma. Le informazioni raccolte durante la creazione dell'account includono:
   - **Dettagli dell'Organizzazione**:
-    - nome utente
-    - password hashata
-    - nome
-    - descrizione
-    - email
-    - numero di telefono (_opzionale_)
-    - sito web
-    - data di creazione
-    - ultima data di aggiornamento
+     - nome utente
+     - password hashata
+     - nome
+     - descrizione
+     - email
+     - numero di telefono (_opzionale_)
+     - sito web
+     - data di creazione
+     - ultima data di aggiornamento
   - **Post Pubblici**:
-    - titolo
-    - descrizione
-    - dati di localizzazione (longitudine e latitudine)
-    - data di creazione
-    - ultima data di aggiornamento
+     - titolo
+     - descrizione
+     - dati di localizzazione (longitudine e latitudine)
+     - data di creazione
+     - ultima data di aggiornamento
 - **Analisi**:
    Se acconsenti ai cookie, utilizziamo Simple Analytics per raccogliere e analizzare dati su come gli utenti interagiscono con il nostro sito.
    Questo ci aiuta a migliorare i nostri servizi senza compromettere la tua privacy.
