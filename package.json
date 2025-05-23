@@ -1,7 +1,7 @@
 {
 	"name": "aid-ly",
 	"private": true,
-	"version": "1.4.13",
+	"version": "1.5.0",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -26,6 +26,8 @@
 		"@types/jsonwebtoken": "^9.0.8",
 		"@types/node": "^22.13.1",
 		"@types/nodemailer": "^6.4.17",
+		"@types/sanitize-html": "^2.16.0",
+		"@types/showdown": "^2.0.6",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",
 		"eslint-plugin-svelte": "^2.46.1",
@@ -56,6 +58,8 @@
 		"jsonwebtoken": "^9.0.2",
 		"marked": "^15.0.7",
 		"nodemailer": "^6.10.0",
+		"sanitize-html": "^2.17.0",
+		"showdown": "^2.1.0",
 		"svelte-scrollto-element": "^3.1.0",
 		"tailwindcss": "^4.0.6"
 	},

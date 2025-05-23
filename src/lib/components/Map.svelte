@@ -5,6 +5,7 @@
 	import mapboxgl from 'mapbox-gl';
 	import 'mapbox-gl/dist/mapbox-gl.css';
 	import { onMount, onDestroy } from 'svelte';
+	import md2html from '$lib/md2html';
 
 	type Props = {
 		posts: Post[];
@@ -63,7 +64,7 @@
 							closeOnMove: true,
 						}).setHTML(`
             <h3 class="text-lg font-semibold text-gray-800">${post.title}</h3>
-            <p class="text-sm text-gray-600 mt-2">${post.description.length > 32 ? post.description.slice(0, 128) + '...' : post.description}</p>
+            <p class="text-sm text-gray-600 mt-2">${md2html(post.description.length > 32 ? post.description.slice(0, 128) + '...' : post.description, 4)}</p>
 
             <div class="mt-4 border-t pt-3">
               <p class="text-xs text-gray-500">

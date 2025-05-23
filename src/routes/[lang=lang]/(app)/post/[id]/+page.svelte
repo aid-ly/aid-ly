@@ -4,6 +4,7 @@
 	import SEO from '$lib/components/SEO.svelte';
 	import { MapBox } from '$lib/helpers';
 	import { onMount } from 'svelte';
+	import md2html from '$lib/md2html';
 
 	const { data } = $props();
 	const { post, locale, lang, page } = data;
@@ -36,7 +37,8 @@
 
 <section id="post" class="mx-auto space-y-4 rounded-2xl bg-white p-6 shadow-md">
 	<h1 class="text-2xl font-bold text-gray-800">{post.title}</h1>
-	<p class="text-gray-600">{post.description}</p>
+	<!-- eslint-disable-next-line svelte/no-at-html-tags -->
+	<p class="text-gray-600">{@html md2html(post.description, 2)}</p>
 
 	<a class="block rounded-lg bg-gray-100 p-4" href={geoUrl} onclick={handleGeoUrl}>
 		<p class="font-semibold text-gray-800">{locale.post.location}</p>
