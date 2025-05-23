@@ -36,6 +36,7 @@ const md2html = (text: string, headerLevelStart: number) => {
 			h4: ['class'],
 			h5: ['class'],
 			p: ['class'],
+			a: ['href', 'target'],
 		},
 	});
 };
