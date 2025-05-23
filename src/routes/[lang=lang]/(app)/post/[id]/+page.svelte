@@ -18,16 +18,11 @@
 
 	let geoUrl = $derived(`geo:${post.lat},${post.lng}?q=${encodeURIComponent(place)}`);
 
+	// TODO: when the `geo:` scheme will be supported on most platforms, remove this handler
 	const handleGeoUrl = (e: Event) => {
-		if (
-			!/Android|webOS|iPhone|iPad|iPod|BlackBerry|BB|PlayBook|IEMobile|Windows Phone|Kindle|Silk|Opera Mini/i.test(
-				navigator.userAgent,
-			) &&
-			place
-		) {
-			e.preventDefault();
-			window.open(`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`);
-		}
+		e.preventDefault();
+		const mapsLink = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place)}`;
+		window.open(mapsLink, '_system');
 	};
 </script>
 
@@ -47,7 +42,9 @@
 
 	<p class="text-gray-800">
 		{locale.post.postedBy}
-		<a class="font-semibold" href="/{lang}/org/{post.user.username}">{post.user.name}</a>
+		<a class="font-semibold" href="/{lang}/org/{post.user.username}" target="_blank">
+			{post.user.name}
+		</a>
 	</p>
 </section>
 
