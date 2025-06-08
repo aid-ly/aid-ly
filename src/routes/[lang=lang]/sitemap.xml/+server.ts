@@ -13,13 +13,15 @@ export const GET = async () => {
 	</url>`,
 		)
 		.join('\n');
-	const posts = (await getAllPostIds()).map(
-		(post) => `\t<url>
+	const posts = (await getAllPostIds())
+		.map(
+			(post) => `\t<url>
 		<loc>${base}/post/${post.id}</loc>
 		<lastmod>${post.updatedAt.toISOString().split('T')[0]}</lastmod>
 		<priority>0.7</priority>
 	</url>`,
-	);
+		)
+		.join('\n');
 
 	return new Response(
 		`
