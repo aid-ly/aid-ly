@@ -2,8 +2,9 @@ import { common } from '$lib/i18n';
 import { getAllPostIds } from '$lib/server/posts.js';
 import { getAllOrganizationUsernames } from '$lib/server/users';
 
-export const GET = async () => {
-	const base = common.project.url;
+export const GET = async ({ params }) => {
+	const { lang } = params;
+	const base = `${common.project.url}/${lang}`;
 	const organizations = (await getAllOrganizationUsernames())
 		.map(
 			(org) => `\t<url>
