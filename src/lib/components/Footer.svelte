@@ -96,7 +96,13 @@
 		</span>
 
 		<div class="mt-4 flex space-x-6 sm:mt-0 sm:justify-center rtl:space-x-reverse">
-			<a href={common.socials.github} target="_blank" rel="noopener noreferrer" title="GitHub">
+			<a
+				class="no-style"
+				href={common.socials.github}
+				target="_blank"
+				rel="noopener noreferrer"
+				title="GitHub"
+			>
 				<Github color="grey" />
 			</a>
 		</div>

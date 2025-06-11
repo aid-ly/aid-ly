@@ -36,7 +36,7 @@
 <header>
 	<nav class="container mx-auto px-6 py-8 md:flex md:items-center md:justify-between">
 		<div class="flex w-[100%] items-center justify-between">
-			<a class="text-xl font-bold no-underline hover:text-red-400 md:text-2xl" href="/">
+			<a class="no-style text-xl font-bold hover:text-red-400 md:text-2xl" href="/">
 				<img src="/logo.svg" alt={locale.logo.alt} width="70" height="70" />
 				<span>aid-ly</span>
 			</a>
