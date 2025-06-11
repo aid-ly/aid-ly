@@ -1,9 +1,9 @@
-FROM node:23-alpine AS base
+FROM node:24-alpine AS base
 WORKDIR /app
 ENV NODE_ENV=production
 
 FROM base AS pre-base
-RUN corepack enable && corepack prepare pnpm@latest --activate
+RUN corepack enable && corepack prepare pnpm@10.12.1 --activate
 ENV HUSKY=0
 
 FROM pre-base AS deps
