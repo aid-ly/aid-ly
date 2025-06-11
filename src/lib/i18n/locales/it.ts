@@ -46,6 +46,10 @@ export default {
 			title: 'Login',
 			description: 'Portale di login per le organizzazioni non profit.',
 		},
+		faq: {
+			title: 'FAQ',
+			description: 'Domande frequenti su aid-ly. Trova le risposte alle domande più comuni.',
+		},
 		donate: {
 			title: 'Donazioni',
 			description: 'Sostieni il progetto con una donazione, anche minima.',
@@ -200,6 +204,86 @@ export default {
 			passwords_dont_match: 'Le password non sono uguali',
 		},
 	},
+	faq: {
+		title: 'Domande Frequenti',
+		volunteers: 'Per i Volontari',
+		organizations: 'Per le Organizzazioni',
+		faqs: {
+			volunteers: [
+				{
+					question: "Cos'è Aid-Ly?",
+					answer:
+						"Aid-Ly è un progetto pensato per restringere la distanza tra le organizzazioni non profit e gli aspiranti volontari; è nato dall'esigenza di trovare luoghi in cui mettersi al servizio senza passare ore alla ricerca di organizzazioni che avessero bisogno di una mano.",
+				},
+				{
+					question: 'Come faccio ad iscrivermi?',
+					answer:
+						'Non è necessaria alcuna iscrizione, basta cercare sulla mappa i luoghi dove fare servizio e contattare direttamente le organizzazioni.',
+				},
+				{
+					question: 'Come posso aiutare?',
+					answer:
+						'Ci sono diversi modi per aiutarci. Se vuoi aiutarci economicamente puoi effettuare una donazione. Altrimenti, se ne hai le competenze, puoi contribuire alla traduzione o allo sviluppo del sito, per farlo non esitare a contattarci.',
+				},
+				{
+					question: 'Chi può partecipare come volontario?',
+					answer:
+						'Chiunque abbia voglia di donare il proprio tempo può partecipare come volontario. Non ci sono limiti di età o requisiti particolari, salvo quelli specificati dalle singole organizzazioni.',
+				},
+				{
+					question: 'Posso vedere le opportunità di volontariato senza registrarmi?',
+					answer:
+						'Sì, puoi esplorare la mappa e le opportunità disponibili senza alcuna registrazione. La piattaforma è aperta e trasparente.',
+				},
+				{
+					question: "Come posso contattare un'organizzazione?",
+					answer:
+						'Ogni scheda organizzazione include le informazioni di contatto necessarie (email, sito web, social, ecc.). Puoi contattarle direttamente per offrire la tua disponibilità.',
+				},
+				{
+					question: 'Aid-Ly è disponibile in altre lingue?',
+					answer:
+						'Attualmente il sito è disponibile in italiano e inglese. Se vuoi aiutarci con ulteriori traduzioni, contattaci!',
+				},
+				{
+					question: 'I miei dati vengono raccolti o salvati dal sito?',
+					answer:
+						'Aid-Ly minimizza la raccolta dei dati. Ti invitiamo a leggere la nostra Informativa sulla Privacy per maggiori dettagli.',
+				},
+				{
+					question: 'Come faccio a segnalare un errore o un problema sul sito?',
+					answer:
+						"Puoi utilizzare il modulo di contatto disponibile nella sezione 'Contatti' per segnalare eventuali problemi tecnici o contenuti errati.",
+				},
+				{
+					question: 'Quali sono i costi per Aid-Ly?',
+					answer:
+						"Aid-Ly è stato creato per essere il meno costoso possibile da tenere online, ma, comunque, ha dei costi di gestione ricorrenti, tra cui: dominio (€7/anno), hosting (€5.31/mese); per un totale di €70.72 all'anno.",
+				},
+			],
+			organizations: [
+				{
+					question: 'Come può un organizzazione entrare a far parte di Aid-Ly?',
+					answer:
+						'Un organizzazione può contattarci attraverso il modulo nella sezione "Contatti". Dopo una breve verifica, pubblicheremo la sua scheda e sarà visibile sulla piattaforma.',
+				},
+				{
+					question: 'Cosa deve contenere il profilo di un organizzazione?',
+					answer:
+						'Il profilo dovrebbe includere una descrizione chiara della missione, i tipi di attività svolte e i contatti. Questo aiuta i volontari a capire meglio come contribuire.',
+				},
+				{
+					question: 'Le organizzazioni devono pagare per essere presenti sulla piattaforma?',
+					answer:
+						'No, la partecipazione su Aid-Ly è gratuita anche per le organizzazioni. Il nostro obiettivo è facilitare il volontariato, non trarne profitto.',
+				},
+				{
+					question: 'Chi gestisce i contenuti della pagina dell organizzazione?',
+					answer: 'I contenuti vengono pubblicati con autonomia dalle singole organizzazioni.',
+				},
+			],
+		},
+	},
 	header: {
 		logo: {
 			alt: 'Logo di aid-ly',
@@ -207,6 +291,7 @@ export default {
 		ul: {
 			home: 'Home',
 			contacts: 'Contatti',
+			faq: 'FAQ',
 			contribute: {
 				label: 'Contribuisci',
 				options: [
@@ -229,6 +314,10 @@ export default {
 			contacts: {
 				url: '/it/contacts',
 				display: 'Contatti',
+			},
+			faq: {
+				url: '/it/faq',
+				display: 'FAQ',
 			},
 			donate: {
 				url: '/it/donate',

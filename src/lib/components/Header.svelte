@@ -87,6 +87,11 @@
 				</a>
 			</li>
 			<li>
+				<a href="/{lang}/faq">
+					{locale.ul.faq}
+				</a>
+			</li>
+			<li>
 				<Dropdown
 					title={locale.ul.contribute.label}
 					options={locale.ul.contribute.options}

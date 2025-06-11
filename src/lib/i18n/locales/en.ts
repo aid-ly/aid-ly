@@ -42,6 +42,11 @@ export default {
 			title: 'Login',
 			description: 'Login portal for nonprofit organizations.',
 		},
+		faq: {
+			title: 'FAQs',
+			description:
+				'Frequently Asked Questions about aid-ly. Find answers to the most common questions here.',
+		},
 		donate: {
 			title: 'Donate',
 			description: 'Support the project by donating even a small amount.',
@@ -197,6 +202,86 @@ export default {
 			passwords_dont_match: "The passwords don't match",
 		},
 	},
+	faq: {
+		title: 'Frequently Asked Questions',
+		volunteers: 'Volunteers',
+		organizations: 'Organizations',
+		faqs: {
+			volunteers: [
+				{
+					question: 'What is Aid-Ly?',
+					answer:
+						'Aid-Ly is a project designed to bridge the gap between nonprofit organizations and aspiring volunteers. It was born out of the need to find places to serve without spending hours searching for organizations in need of help.',
+				},
+				{
+					question: 'How do I sign up?',
+					answer:
+						'No registration is required. Just search the map for places to volunteer and contact the organizations directly.',
+				},
+				{
+					question: 'How can I help?',
+					answer:
+						"There are several ways to help. If you'd like to support us financially, you can make a donation. Otherwise, if you have the skills, you can contribute by translating or developing the site—don’t hesitate to get in touch.",
+				},
+				{
+					question: 'Who can volunteer?',
+					answer:
+						'Anyone willing to donate their time can volunteer. There are no age limits or specific requirements, except those set by individual organizations.',
+				},
+				{
+					question: 'Can I see volunteer opportunities without signing up?',
+					answer:
+						'Yes, you can explore the map and available opportunities without registering. The platform is open and transparent.',
+				},
+				{
+					question: 'How can I contact an organization?',
+					answer:
+						'Each organization’s profile includes the necessary contact information (email, website, social media, etc.). You can reach out directly to offer your availability.',
+				},
+				{
+					question: 'Is Aid-Ly available in other languages?',
+					answer:
+						"The site is currently available in Italian and English. If you'd like to help with additional translations, get in touch!",
+				},
+				{
+					question: 'Does the site collect or store my data?',
+					answer:
+						'Aid-Ly minimizes data collection. Please read our Privacy Policy for more details.',
+				},
+				{
+					question: 'How do I report an error or issue on the site?',
+					answer:
+						"You can use the contact form in the 'Contacts' section to report any technical issues or incorrect content.",
+				},
+				{
+					question: 'What are Aid-Ly’s costs?',
+					answer:
+						'Aid-Ly was created to be as low-cost as possible to keep online, but there are recurring maintenance costs including: domain (€7/year), hosting (€5.31/month); totaling €70.72 per year.',
+				},
+			],
+			organizations: [
+				{
+					question: 'How can an organization join Aid-Ly?',
+					answer:
+						"An organization can contact us via the form in the 'Contacts' section. After a brief verification, we’ll publish its profile and it will be visible on the platform.",
+				},
+				{
+					question: 'What should an organization profile include?',
+					answer:
+						'The profile should include a clear description of its mission, the types of activities it carries out, and contact information. This helps volunteers better understand how they can contribute.',
+				},
+				{
+					question: 'Do organizations have to pay to be listed on the platform?',
+					answer:
+						'No, participation on Aid-Ly is free for organizations as well. Our goal is to facilitate volunteering, not profit from it.',
+				},
+				{
+					question: 'Who manages the content on an organization’s page?',
+					answer: 'Content is published independently by each organization.',
+				},
+			],
+		},
+	},
 	header: {
 		logo: {
 			alt: "aid-ly's logo",
@@ -204,6 +289,7 @@ export default {
 		ul: {
 			home: 'Home',
 			contacts: 'Contacts',
+			faq: 'FAQs',
 			contribute: {
 				label: 'Contribute',
 				options: [
@@ -226,6 +312,10 @@ export default {
 			contacts: {
 				url: '/en/contacts',
 				display: 'Contacts',
+			},
+			faq: {
+				url: '/en/faq',
+				display: 'FAQs',
 			},
 			donate: {
 				url: '/en/donate',

@@ -18,6 +18,9 @@
 					<a href={locale.resources.contacts.url}>{locale.resources.contacts.display}</a>
 				</li>
 				<li>
+					<a href={locale.resources.faq.url}>{locale.resources.faq.display}</a>
+				</li>
+				<li>
 					<a href={locale.resources.donate.url}>{locale.resources.donate.display}</a>
 				</li>
 				<li>
