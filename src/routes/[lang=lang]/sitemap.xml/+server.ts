@@ -46,12 +46,17 @@ export const GET = async ({ params }) => {
 		<priority>0.7</priority>
 	</url>
 	<url>
-		<loc>${base}/donate</loc>
-		<lastmod>2025-04-09</lastmod>
+		<loc>${base}/faq</loc>
+		<lastmod>2025-06-11</lastmod>
 		<priority>0.7</priority>
 	</url>
 ${organizations}
 ${posts}
+	<url>
+		<loc>${base}/donate</loc>
+		<lastmod>2025-04-09</lastmod>
+		<priority>0.6</priority>
+	</url>
 	<url>
 		<loc>${base}/privacy-policy</loc>
 		<lastmod>2025-02-23</lastmod>
