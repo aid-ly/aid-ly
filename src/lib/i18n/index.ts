@@ -7,7 +7,7 @@ export const locales = { en, it };
 export type Language = keyof typeof locales;
 export type Locale = typeof en | typeof it;
 
-export const AVAILABLE_LANGUAGES: Language[] = Object.keys(locales) as (keyof typeof locales)[];
+export const AVAILABLE_LANGUAGES: Language[] = Object.keys(locales) as Language[];
 
 export const FALLBACK: Language = 'en';
 
