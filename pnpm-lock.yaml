@@ -124,6 +124,9 @@ importers:
       svelte-check:
         specifier: ^4.2.2
         version: 4.2.2(picomatch@4.0.2)(svelte@5.35.2)(typescript@5.8.3)
+      svelte-cookie-banner:
+        specifier: ^1.1.14
+        version: 1.1.14(svelte@5.35.2)
       svelte-free-icons-brands:
         specifier: ^1.0.1
         version: 1.0.1(svelte@5.35.2)
@@ -2101,6 +2104,11 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
 
+  svelte-cookie-banner@1.1.14:
+    resolution: {integrity: sha512-N3qU+zgDNtyV+1HuH9Grbms00TIhWl8FEOHWvDGIa2dS0VASc6CYqCiFsEaQ56LFVmdc5dtYPZjmi+RF4re6Eg==}
+    peerDependencies:
+      svelte: ^5.0.0
+
   svelte-eslint-parser@0.43.0:
     resolution: {integrity: sha512-GpU52uPKKcVnh8tKN5P4UZpJ/fUDndmq7wfsvoVXsyP+aY0anol7Yqo01fyrlaWGMFfm4av5DyrjlaXdLRJvGA==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
@@ -2215,6 +2223,10 @@ packages:
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
+
+  uuid@11.1.0:
+    resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
+    hasBin: true
 
   v8-compile-cache-lib@3.0.1:
     resolution: {integrity: sha512-wa7YjyUGfNZngI/vtK0UHAN+lgDCxBPCylVXGp0zu59Fz5aiGtNXaq3DhIov063MorB+VfufLh3JlF2KdTK3xg==}
@@ -4070,6 +4082,12 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
+  svelte-cookie-banner@1.1.14(svelte@5.35.2):
+    dependencies:
+      js-cookie: 3.0.5
+      svelte: 5.35.2
+      uuid: 11.1.0
+
   svelte-eslint-parser@0.43.0(svelte@5.35.2):
     dependencies:
       eslint-scope: 7.2.2
@@ -4197,6 +4215,8 @@ snapshots:
       punycode: 2.3.1
 
   util-deprecate@1.0.2: {}
+
+  uuid@11.1.0: {}
 
   v8-compile-cache-lib@3.0.1:
     optional: true

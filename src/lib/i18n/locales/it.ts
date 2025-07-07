@@ -28,6 +28,22 @@ export default {
 			buttons: {
 				acceptAll: 'Accetta Tutti',
 				rejectAll: 'Solo Necessari',
+				customize: {
+					label: 'Personalizza',
+					chooseLabel: 'Scegli Wuali Cookie Abilitare',
+					confirmLabel: 'Conferma le Scelte',
+				},
+			},
+			choices: {
+				essentials: {
+					label: 'Essenziali',
+					description:
+						'Usati per il controllo dei cookie e per le informazioni di login. Non possono essere disabilitati.',
+				},
+				analytics: {
+					label: 'Analitici',
+					description: 'Usati per controllare il traffico del sito.',
+				},
 			},
 		},
 	},

@@ -24,6 +24,21 @@ export default {
 			buttons: {
 				acceptAll: 'Accept All',
 				rejectAll: 'Necessary Only',
+				customize: {
+					label: 'Customize',
+					chooseLabel: 'Choose Wich Cookies To Enable',
+					confirmLabel: 'Confirm My Choices',
+				},
+			},
+			choices: {
+				essentials: {
+					label: 'Essentials',
+					description: "Used for cookie control and login information. Can't be turned off.",
+				},
+				analytics: {
+					label: 'Analytics',
+					description: 'Used to check website traffic.',
+				},
 			},
 		},
 	},
