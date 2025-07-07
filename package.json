@@ -1,7 +1,7 @@
 {
 	"name": "aid-ly",
 	"private": true,
-	"version": "1.6.8",
+	"version": "1.6.9",
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
@@ -39,7 +39,7 @@
 		"prettier-plugin-tailwindcss": "^0.6.13",
 		"prisma": "^6.11.1",
 		"sass": "^1.89.2",
-		"svelte": "^5.35.2",
+		"svelte": "^5.35.4",
 		"svelte-check": "^4.2.2",
 		"svelte-cookie-banner": "^1.1.14",
 		"svelte-free-icons-brands": "^1.0.1",
@@ -47,7 +47,7 @@
 		"tailwindcss": "^4.0.0",
 		"tsx": "^4.20.3",
 		"typescript": "^5.8.3",
-		"typescript-eslint": "^8.35.1",
+		"typescript-eslint": "^8.36.0",
 		"vite": "^6.3.5"
 	},
 	"dependencies": {
