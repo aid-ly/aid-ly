@@ -125,8 +125,8 @@ importers:
         specifier: ^4.2.2
         version: 4.2.2(picomatch@4.0.2)(svelte@5.35.4)(typescript@5.8.3)
       svelte-cookie-banner:
-        specifier: ^1.1.14
-        version: 1.1.14(svelte@5.35.4)
+        specifier: ^1.3.1
+        version: 1.3.1(svelte@5.35.4)
       svelte-free-icons-brands:
         specifier: ^1.0.1
         version: 1.0.1(svelte@5.35.4)
@@ -2110,8 +2110,8 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
 
-  svelte-cookie-banner@1.1.14:
-    resolution: {integrity: sha512-N3qU+zgDNtyV+1HuH9Grbms00TIhWl8FEOHWvDGIa2dS0VASc6CYqCiFsEaQ56LFVmdc5dtYPZjmi+RF4re6Eg==}
+  svelte-cookie-banner@1.3.1:
+    resolution: {integrity: sha512-KevVGUlRlESTL/l+CZBrUSRKSaQ9keQOy3rS1/0NB/jPvHzYLhDWhHrvqZ4eda4b7rviY2I0wAmGWxZemf0oAQ==}
     peerDependencies:
       svelte: ^5.0.0
 
@@ -4092,7 +4092,7 @@ snapshots:
     transitivePeerDependencies:
       - picomatch
 
-  svelte-cookie-banner@1.1.14(svelte@5.35.4):
+  svelte-cookie-banner@1.3.1(svelte@5.35.4):
     dependencies:
       js-cookie: 3.0.5
       svelte: 5.35.4
