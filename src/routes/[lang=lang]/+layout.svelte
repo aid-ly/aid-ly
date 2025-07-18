@@ -1,25 +1,14 @@
 <script lang="ts">
-	import { CookieBanner } from 'svelte-cookie-banner';
+	import { CookieBanner } from 'svelte-cookie-consent';
 	import PageSEO from '$lib/components/PageSEO.svelte';
 
 	const { children, data } = $props();
 	const { locale, lang, page } = data;
-</script>
 
-{@render children()}
-
-<!-- <CookieBanner {initAnalytics} locale={locale.gdpr.banner} /> -->
-<CookieBanner
-	heading={locale.gdpr.banner.title}
-	description={locale.gdpr.banner.description}
-	acceptAllLabel={locale.gdpr.banner.buttons.acceptAll}
-	rejectAllLabel={locale.gdpr.banner.buttons.rejectAll}
-	customize={locale.gdpr.banner.buttons.customize}
-	bgColor="#ee0000"
-	choices={{
-		essentials: {
-			label: locale.gdpr.banner.choices.essentials.label,
-			description: locale.gdpr.banner.choices.essentials.description,
+	const choices = $state({
+		necessary: {
+			label: locale.gdpr.banner.choices.necessary.label,
+			description: locale.gdpr.banner.choices.necessary.description,
 			value: true,
 			mandatory: true,
 		},
@@ -41,6 +30,24 @@
 				);
 			},
 		},
+	});
+</script>
+
+{@render children()}
+
+<CookieBanner
+	heading={locale.gdpr.banner.title}
+	description={locale.gdpr.banner.description}
+	acceptAllLabel={locale.gdpr.banner.buttons.acceptAll}
+	rejectAllLabel={locale.gdpr.banner.buttons.rejectAll}
+	customize={locale.gdpr.banner.buttons.customize}
+	bgColor="#ee0000"
+	{choices}
+	cookie={{
+		name: 'gdpr-cookie',
+		path: '/',
+		secure: true,
+		sameSite: 'strict',
 	}}
 />
 

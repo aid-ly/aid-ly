@@ -31,8 +31,8 @@ export default {
 				},
 			},
 			choices: {
-				essentials: {
-					label: 'Essentials',
+				necessary: {
+					label: 'Necessary',
 					description: "Used for cookie control and login information. Can't be turned off.",
 				},
 				analytics: {
