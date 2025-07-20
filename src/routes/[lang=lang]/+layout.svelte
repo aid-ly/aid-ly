@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { CookieBanner } from 'svelte-cookie-consent';
+	import { CookieBox } from 'svelte-cookie-consent';
 	import PageSEO from '$lib/components/PageSEO.svelte';
 
 	const { children, data } = $props();
@@ -35,11 +35,17 @@
 
 {@render children()}
 
-<CookieBanner
+<CookieBox
 	heading={locale.gdpr.banner.title}
 	description={locale.gdpr.banner.description}
-	acceptAllLabel={locale.gdpr.banner.buttons.acceptAll}
-	rejectAllLabel={locale.gdpr.banner.buttons.rejectAll}
+	acceptAllLabel={{
+		text: locale.gdpr.banner.buttons.acceptAll,
+		style: 'color: var(--fg-color);',
+	}}
+	rejectAllLabel={{
+		text: locale.gdpr.banner.buttons.rejectAll,
+		style: 'color: var(--fg-color);',
+	}}
 	customize={locale.gdpr.banner.buttons.customize}
 	bgColor="#ee0000"
 	{choices}
